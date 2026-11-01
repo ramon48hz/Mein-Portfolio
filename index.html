@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="de-CH">
+
+<head>
+    <!-- Zeichencodierung -->
+    <meta charset="UTF-8">
+
+    <!-- Optimierung für Smartphones und Tablets -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Beschreibung für Suchmaschinen -->
+    <meta name="description"
+          content="Portfolio eines Media Engineers für Fotografie, Videografie, Social Media und Corporate Communication.">
+
+    <title>Portfolio | Media Engineer</title>
+
+    <!-- CSS-Datei einbinden -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- JavaScript-Datei einbinden -->
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+    <!-- ==========================================
+         NAVIGATION
+         Schwebende Navigation am oberen Bildschirmrand
+    =========================================== -->
+
+    <header class="site-header">
+
+        <nav class="navbar" aria-label="Hauptnavigation">
+
+            <!--
+                EIGENES LOGO
+
+                Das Logo wird aus dem Assets-Ordner geladen.
+
+                Durch href="#start" gelangt man beim
+                Anklicken immer zum Anfang der Startseite.
+            -->
+
+            <a href="#start" class="logo" aria-label="Zur Startseite">
+
+                <img
+                    src="assets/RLogo.jpg"
+                    alt="Logo"
+                    class="logo-image"
+                    width="44"
+                    height="44"
+                >
+
+            </a>
+
+            <!--
+                NAVIGATION
+
+                Kunden wurde entfernt.
+                Die Schrift wird später über CSS fett dargestellt.
+            -->
+
+            <div class="nav-links">
+
+                <a href="#about">Über mich</a>
+
+                <a href="#projects">Projekte</a>
+
+                <a href="#contact">Kontakt</a>
+
+            </div>
+
+        </nav>
+
+    </header>
+
+
+    <!-- ==========================================
+         HAUPTINHALT
+    =========================================== -->
+
+    <main>
+
+        <!-- ======================================
+             HERO SECTION
+             Erster sichtbarer Bereich der Website
+        ======================================= -->
+
+        <section class="hero" id="start">
+
+            <!--
+                Helligkeitsverlauf über dem Hintergrundbild.
+                Verbessert die Lesbarkeit des Textes.
+            -->
+
+            <div class="hero-overlay" aria-hidden="true"></div>
+
+
+            <div class="hero-container">
+
+                <div class="hero-content">
+
+                    <!-- Kleine Überschrift über dem Haupttitel -->
+
+                    <p class="eyebrow">
+                        MEDIA ENGINEER · SCHWEIZ
+                    </p>
+
+
+                    <!-- Hauptüberschrift -->
+
+                    <h1>
+                        Geschichten<br>
+                        zum Leben<br>
+                        erwecken.
+                    </h1>
+
+
+                    <!-- Beschreibung -->
+
+                    <p class="hero-description">
+                        Fotografie, Videografie, Social Media,
+                        Corporate Communication.
+                    </p>
+
+
+                    <!-- ==================================
+                         TRANSPARENTE BUTTONS
+                    =================================== -->
+
+                    <div class="hero-buttons">
+
+                        <a href="#projects" class="btn btn-outline">
+                            Projekte entdecken ↗
+                        </a>
+
+                        <a href="#about" class="btn btn-glass">
+                            Mehr über mich ↓
+                        </a>
+
+                    </div>
+
+
+                    <!-- ==================================
+                         KUNDENLOGOS
+
+                         Die Reihenfolge entspricht deiner
+                         gewünschten Anordnung.
+
+                         Die Logos werden später über CSS
+                         einheitlich dargestellt.
+                    =================================== -->
+
+                    <div class="client-logos">
+
+                        <img src="assets/Migros.png" alt="Migros" loading="lazy">
+
+                        <img src="assets/Hertz.png" alt="Hertz" loading="lazy">
+
+                        <img src="assets/Repower.png" alt="Repower" loading="lazy">
+
+                        <img src="assets/LouisXIV.png" alt="Louis XIV" loading="lazy">
+
+                        <img src="assets/Arboro.png" alt="Arboro" loading="lazy">
+
+                        <img src="assets/TU.png" alt="TU" loading="lazy">
+
+                        <img src="assets/MJ.png" alt="MJ" loading="lazy">
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- Weitere Website-Bereiche folgen später -->
+
+    </main>
+
+</body>
+</html>

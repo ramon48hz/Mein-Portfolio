@@ -1,0 +1,542 @@
+/* ==========================================
+   1. DESIGNVARIABLEN
+   Zentrale Farben und Einstellungen.
+========================================== */
+
+:root {
+    --background: #f2f0ed;
+    --text: #202124;
+    --muted: #44474a;
+    --border: rgba(32, 33, 36, 0.55);
+}
+
+/* ==========================================
+   2. GRUNDEINSTELLUNGEN
+========================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--background);
+    color: var(--text);
+    -webkit-font-smoothing: antialiased;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* ==========================================
+   3. SCHWEBENDE NAVIGATION
+========================================== */
+
+.site-header {
+    position: fixed;
+    top: 20px;
+    left: 0;
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+
+    padding: 0 20px;
+    z-index: 100;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: min(100%, 720px);
+    padding: 15px 30px;
+
+    /* Halbtransparente Glasoptik */
+    background: rgba(255, 255, 255, 0.55);
+
+    /* Hintergrundunschärfe */
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    /* Abgerundete Ecken */
+    border-radius: 100px;
+
+    border: 1px solid rgba(255, 255, 255, 0.5);
+
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 32px;
+    align-items: center;
+}
+
+.nav-links a {
+    font-size: 13px;
+    font-weight: 500;
+
+    transition: opacity 0.25s ease;
+}
+
+.nav-links a:hover {
+    opacity: 0.55;
+}
+
+/* ==========================================
+   4. HERO SECTION
+========================================== */
+
+.hero {
+    position: relative;
+
+    /* Hero nimmt mindestens die gesamte Bildschirmhöhe ein */
+    min-height: 100vh;
+    min-height: 100svh;
+
+    display: flex;
+    align-items: center;
+
+    /* Unser Hintergrundbild */
+    background-image: url("assets/images/hero.jpg");
+
+    background-size: cover;
+    background-position: center;
+
+    overflow: hidden;
+}
+
+/* ==========================================
+   5. BILDÜBERLAGERUNG
+   Hellt die linke Seite auf, damit die
+   schwarze Schrift gut lesbar bleibt.
+========================================== */
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+
+    background: linear-gradient(
+        90deg,
+        rgba(242, 240, 237, 0.96) 0%,
+        rgba(242, 240, 237, 0.82) 32%,
+        rgba(242, 240, 237, 0.25) 65%,
+        rgba(242, 240, 237, 0) 100%
+    );
+
+    pointer-events: none;
+}
+
+/* ==========================================
+   6. HERO-INHALT
+========================================== */
+
+.hero-container {
+    position: relative;
+    z-index: 2;
+
+    width: 100%;
+    max-width: 1440px;
+
+    margin: 0 auto;
+    padding: 140px 6% 100px;
+}
+
+.hero-content {
+    max-width: 720px;
+}
+
+.eyebrow {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+
+    margin-bottom: 28px;
+}
+
+.hero h1 {
+    font-size: clamp(48px, 5.4vw, 88px);
+
+    line-height: 0.98;
+    letter-spacing: -0.06em;
+
+    font-weight: 800;
+
+    margin-bottom: 32px;
+}
+
+.hero-description {
+    max-width: 490px;
+
+    font-size: 18px;
+    line-height: 1.6;
+
+    color: var(--muted);
+
+    margin-bottom: 36px;
+}
+
+/* ==========================================
+   7. TRANSPARENTE BUTTONS
+========================================== */
+
+.hero-buttons {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 15px 25px;
+
+    border-radius: 100px;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    transition:
+        background 0.25s ease,
+        transform 0.25s ease;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+}
+
+/* Transparenter Button mit dunkler Kontur */
+.btn-outline {
+    background: transparent;
+    border: 1px solid var(--border);
+}
+
+/* Halbtransparenter Glas-Button */
+.btn-glass {
+    background: rgba(255, 255, 255, 0.25);
+
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    border: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+.btn-outline:hover,
+.btn-glass:hover {
+    background: rgba(255, 255, 255, 0.55);
+}
+
+/* ==========================================
+   8. RESPONSIVE DESIGN
+========================================== */
+
+@media (max-width: 900px) {
+
+    .hero-container {
+        padding: 160px 6% 90px;
+    }
+
+    .hero h1 {
+        font-size: clamp(48px, 7vw, 72px);
+    }
+
+    .hero-overlay {
+        background: linear-gradient(
+            90deg,
+            rgba(242, 240, 237, 0.96),
+            rgba(242, 240, 237, 0.5)
+        );
+    }
+}
+
+@media (max-width: 600px) {
+
+    .site-header {
+        top: 12px;
+        padding: 0 12px;
+    }
+
+    .navbar {
+        padding: 14px 16px;
+        gap: 12px;
+    }
+
+    .logo {
+        font-size: 18px;
+    }
+
+    .nav-links {
+        gap: 12px;
+    }
+
+    .nav-links a {
+        font-size: 11px;
+    }
+
+    .hero {
+        align-items: flex-end;
+        background-position: 65% center;
+    }
+
+    .hero-container {
+        padding: 140px 24px 80px;
+    }
+
+    .hero h1 {
+        font-size: clamp(40px, 10vw, 58px);
+    }
+
+    .hero-description {
+        font-size: 16px;
+    }
+
+    .hero-overlay {
+        background: linear-gradient(
+            0deg,
+            rgba(242, 240, 237, 0.98) 0%,
+            rgba(242, 240, 237, 0.7) 55%,
+            rgba(242, 240, 237, 0.1) 100%
+        );
+    }
+}
+
+/* ==========================================
+   9. BARRIEREFREIHEIT
+   Respektiert reduzierte Animationen.
+========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    .btn,
+    .nav-links a {
+        transition: none;
+    }
+}
+
+/* ==========================================
+   10. EIGENES LOGO IN DER NAVIGATION
+
+   Ersetzt die bisherige Textdarstellung
+   durch dein persönliches Logo.
+========================================== */
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* Verhindert, dass das Logo verzerrt wird */
+    flex-shrink: 0;
+}
+
+.logo-image {
+    /* Grösse des Logos */
+    width: 44px;
+    height: 44px;
+
+    /* Bild bleibt proportional */
+    object-fit: contain;
+
+    /* Leicht abgerundete Ecken */
+    border-radius: 8px;
+}
+
+
+/* ==========================================
+   11. NAVIGATION FETT FORMATIEREN
+========================================== */
+
+.nav-links a {
+
+    /* Fett formatierte Navigationspunkte */
+    font-weight: 700;
+
+}
+
+
+/* ==========================================
+   12. NEUE HERO-HEADLINE
+========================================== */
+
+.hero h1 {
+
+    /*
+       Etwas kleinere Schrift als bisher,
+       damit die längere deutsche Headline
+       genügend Platz erhält.
+    */
+
+    font-size: clamp(46px, 5vw, 76px);
+
+    /* Kompakte Zeilenabstände */
+    line-height: 1.05;
+
+    /* Leicht reduzierte Buchstabenabstände */
+    letter-spacing: -0.055em;
+
+    /* Abstand zum Beschreibungstext */
+    margin-bottom: 28px;
+}
+
+
+/* ==========================================
+   13. KUNDENLOGOS
+========================================== */
+
+.client-logos {
+
+    /* Logos werden nebeneinander angeordnet */
+    display: flex;
+
+    /* Vertikale Ausrichtung */
+    align-items: center;
+
+    /* Gleichmässige Abstände */
+    gap: 28px;
+
+    /* Abstand zu den Buttons */
+    margin-top: 55px;
+
+    /* Die Logos dürfen auf kleinen Bildschirmen umbrechen */
+    flex-wrap: wrap;
+
+    /* Maximale Breite der Logo-Reihe */
+    max-width: 750px;
+}
+
+
+/* ==========================================
+   14. EINZELNE KUNDENLOGOS
+========================================== */
+
+.client-logos img {
+
+    /* Einheitliche Höhe */
+    height: 30px;
+
+    /* Breite passt sich dem jeweiligen Logo an */
+    width: auto;
+
+    /* Verhindert Verzerrungen */
+    object-fit: contain;
+
+    /* Maximale Breite einzelner Logos */
+    max-width: 105px;
+
+    /*
+       Dezente Darstellung:
+       Logos erscheinen zunächst in Graustufen.
+    */
+
+    filter: grayscale(100%);
+
+    /* Leicht reduzierte Deckkraft */
+    opacity: 0.65;
+
+    /* Sanfter Übergang beim Hover */
+    transition:
+        filter 0.3s ease,
+        opacity 0.3s ease,
+        transform 0.3s ease;
+}
+
+
+/* ==========================================
+   15. HOVER-EFFEKT DER KUNDENLOGOS
+
+   Beim Darüberfahren mit der Maus
+   erscheinen die Originalfarben.
+========================================== */
+
+.client-logos img:hover {
+
+    /* Originalfarben anzeigen */
+    filter: grayscale(0%);
+
+    /* Volle Deckkraft */
+    opacity: 1;
+
+    /* Leichte Vergrösserung */
+    transform: scale(1.05);
+}
+
+
+/* ==========================================
+   16. RESPONSIVE ANPASSUNGEN
+========================================== */
+
+@media (max-width: 900px) {
+
+    .client-logos {
+        gap: 22px;
+        margin-top: 40px;
+    }
+
+    .client-logos img {
+        height: 26px;
+        max-width: 90px;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    /* Logo auf Smartphones etwas kleiner */
+    .logo-image {
+        width: 36px;
+        height: 36px;
+    }
+
+    /* Headline für kleine Bildschirme */
+    .hero h1 {
+        font-size: clamp(38px, 9vw, 54px);
+    }
+
+    /* Kundenlogos auf Smartphones */
+    .client-logos {
+        gap: 18px;
+        margin-top: 35px;
+    }
+
+    .client-logos img {
+        height: 22px;
+        max-width: 75px;
+    }
+
+}
+
+/* ==========================================
+   17. BARRIEREFREIHEIT
+   Animationen bei reduzierter Bewegung
+   deaktivieren.
+========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .client-logos img {
+        transition: none;
+    }
+
+}
