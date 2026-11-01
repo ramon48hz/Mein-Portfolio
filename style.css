@@ -1198,3 +1198,507 @@ a {
         line-height: 1.3;
     }
 }
+
+/* ==========================================================
+   27. KONTAKTBEREICH
+
+   Abschluss des Onepagers.
+
+   Design:
+   - Natürliches Bergpanorama
+   - Warme Farben
+   - Grosse Typografie
+   - Transparente Buttons
+   - Footer mit Nach-oben-Button
+========================================================== */
+
+.contact-section {
+
+    /* Positionierung für den Hintergrundverlauf */
+    position: relative;
+
+    /* Mindestens eine Bildschirmhöhe */
+    min-height: 100vh;
+    min-height: 100svh;
+
+    /* Hintergrundbild */
+    background-image: url("assets/images/contact.jpg");
+
+    /* Bild füllt den gesamten Bereich */
+    background-size: cover;
+
+    /* Landschaft mittig positionieren */
+    background-position: center;
+
+    /* Neutrale Hintergrundfarbe als Fallback */
+    background-color: #ded6cd;
+
+    /* Abstand zur fixierten Navigation */
+    scroll-margin-top: 0;
+}
+
+
+/* ==========================================================
+   28. HINTERGRUNDVERLAUF
+
+   Der Verlauf hellt den oberen und linken Bereich auf,
+   damit die Texte gut lesbar bleiben.
+========================================================== */
+
+.contact-overlay {
+    position: absolute;
+    inset: 0;
+
+    background: linear-gradient(
+        90deg,
+        rgba(242, 240, 237, 0.72) 0%,
+        rgba(242, 240, 237, 0.42) 45%,
+        rgba(242, 240, 237, 0.05) 100%
+    );
+
+    /* Overlay blockiert keine Klicks */
+    pointer-events: none;
+}
+
+
+/* ==========================================================
+   29. KONTAKT-CONTAINER
+
+   Verteilt Kontaktinhalt und Footer
+   über die Höhe des Bereichs.
+========================================================== */
+
+.contact-container {
+    position: relative;
+    z-index: 2;
+
+    /* Maximale Inhaltsbreite */
+    max-width: 1440px;
+
+    /* Mindestens Bildschirmhöhe */
+    min-height: 100vh;
+    min-height: 100svh;
+
+    /* Horizontal zentrieren */
+    margin: 0 auto;
+
+    /* Innenabstände */
+    padding: 160px 6% 35px;
+
+    /* Inhalt oben, Footer unten */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    gap: 100px;
+}
+
+
+/* ==========================================================
+   30. KONTAKTINHALT
+========================================================== */
+
+.contact-content {
+    max-width: 1000px;
+}
+
+/* Kleine Abschnittsbezeichnung */
+.contact-content .section-label {
+    margin-bottom: 50px;
+}
+
+/* Grosse Headline */
+.contact-content h2 {
+
+    /* Sehr grosse, responsive Schrift */
+    font-size: clamp(72px, 9vw, 140px);
+
+    /* Kompakter Zeilenabstand */
+    line-height: 0.95;
+
+    /* Enger Buchstabenabstand */
+    letter-spacing: -0.065em;
+
+    font-weight: 800;
+
+    /* Abstand zum Leadtext */
+    margin-bottom: 30px;
+}
+
+/* Leadtext */
+.contact-description {
+    font-size: clamp(20px, 2.5vw, 34px);
+
+    line-height: 1.4;
+
+    color: var(--muted);
+}
+
+
+/* ==========================================================
+   31. KONTAKTBUTTONS
+
+   E-Mail und Social-Media-Buttons
+   im transparenten Glasdesign.
+========================================================== */
+
+.contact-buttons {
+    display: flex;
+    align-items: center;
+
+    /* Abstand zwischen den Buttons */
+    gap: 18px;
+
+    /* Abstand zum Leadtext */
+    margin-top: 55px;
+
+    /* Umbruch auf kleineren Bildschirmen */
+    flex-wrap: wrap;
+}
+
+
+/* Allgemeines Design aller Kontaktbuttons */
+.contact-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    /* Abstand zwischen Icon und Text */
+    gap: 14px;
+
+    /* Höhe der Buttons */
+    min-height: 64px;
+
+    /* Transparenter Hintergrund */
+    background: rgba(255, 255, 255, 0.15);
+
+    /* Glas-Effekt */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    /* Helle Kontur */
+    border: 1px solid rgba(255, 255, 255, 0.9);
+
+    /* Vollständig abgerundete Ecken */
+    border-radius: 100px;
+
+    /* Weiche Hover-Animation */
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        opacity 0.3s ease;
+}
+
+/* Hover-Effekt */
+.contact-btn:hover {
+    transform: translateY(-3px);
+    background: rgba(255, 255, 255, 0.45);
+}
+
+
+/* ==========================================================
+   32. E-MAIL-BUTTON
+========================================================== */
+
+.contact-email {
+    padding: 0 30px;
+
+    font-size: 16px;
+    font-weight: 700;
+}
+
+/* Briefumschlag */
+.contact-email svg {
+    width: 24px;
+    height: 24px;
+}
+
+
+/* ==========================================================
+   33. SOCIAL-MEDIA-BUTTONS
+========================================================== */
+
+.contact-social {
+
+    /* Runde Buttons */
+    width: 64px;
+    height: 64px;
+}
+
+/* LinkedIn- und Instagram-Piktogramme */
+.contact-social svg {
+    width: 27px;
+    height: 27px;
+}
+
+
+/* ==========================================================
+   34. FOOTER
+
+   Transparenter Footer mit feiner Trennlinie.
+========================================================== */
+
+.site-footer {
+
+    /* Dünne Linie über dem Footer */
+    border-top: 1px solid rgba(255, 255, 255, 0.65);
+
+    /* Abstand zur Trennlinie */
+    padding-top: 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 30px;
+}
+
+
+/* ==========================================================
+   35. FOOTER – LINKE SEITE
+========================================================== */
+
+.footer-left {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+/* Persönliches Logo */
+.footer-logo {
+    display: inline-flex;
+    align-items: center;
+}
+
+/* Logo im Footer */
+.footer-logo img {
+    width: 40px;
+    height: 40px;
+
+    object-fit: contain;
+
+    transition:
+        transform 0.3s ease,
+        opacity 0.3s ease;
+}
+
+/* Gleicher Hover-Effekt wie in der Navbar */
+.footer-logo:hover img {
+    transform: scale(1.08);
+    opacity: 0.8;
+}
+
+/* Vertikale Trennlinie */
+.footer-divider {
+    width: 1px;
+    height: 36px;
+
+    background: rgba(255, 255, 255, 0.7);
+}
+
+/* Copyright */
+.footer-left p {
+    font-size: 13px;
+    font-weight: 500;
+}
+
+
+/* ==========================================================
+   36. NACH-OBEN-BUTTON
+
+   Gut sichtbar unten rechts.
+========================================================== */
+
+.back-to-top {
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    /* Innenabstände */
+    padding: 14px 25px;
+
+    /* Transparenter Hintergrund */
+    background: rgba(0, 0, 0, 0.12);
+
+    /* Glas-Effekt */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    /* Weisse Kontur */
+    border: 1.5px solid rgba(255, 255, 255, 0.95);
+
+    /* Abgerundete Form */
+    border-radius: 100px;
+
+    /* Helle Schrift für dunkleren Landschaftsbereich */
+    color: #ffffff;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    /* Hover-Animation */
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease;
+}
+
+/* Hover-Effekt */
+.back-to-top:hover {
+    transform: translateY(-3px);
+    background: rgba(0, 0, 0, 0.3);
+}
+
+
+/* ==========================================================
+   37. TABLET-ANSICHT
+========================================================== */
+
+@media (max-width: 900px) {
+
+    .contact-container {
+        padding: 150px 6% 30px;
+    }
+
+    .contact-content h2 {
+        font-size: clamp(70px, 10vw, 110px);
+    }
+
+    .contact-content .section-label {
+        margin-bottom: 35px;
+    }
+
+}
+
+
+/* ==========================================================
+   38. SMARTPHONE-ANSICHT
+
+   Optimiert für kleinere Bildschirme.
+========================================================== */
+
+@media (max-width: 600px) {
+
+    /* Hintergrundbild anpassen */
+    .contact-section {
+        background-position: 65% center;
+    }
+
+    /* Stärkerer Verlauf für bessere Lesbarkeit */
+    .contact-overlay {
+        background: linear-gradient(
+            to bottom,
+            rgba(242, 240, 237, 0.85) 0%,
+            rgba(242, 240, 237, 0.5) 50%,
+            rgba(0, 0, 0, 0.15) 100%
+        );
+    }
+
+    /* Kontaktinhalt und Footer */
+    .contact-container {
+        padding: 130px 24px 25px;
+
+        gap: 100px;
+    }
+
+    /* Abschnittsbezeichnung */
+    .contact-content .section-label {
+        margin-bottom: 30px;
+    }
+
+    /* Headline */
+    .contact-content h2 {
+        font-size: clamp(54px, 13vw, 78px);
+        margin-bottom: 24px;
+    }
+
+    /* Leadtext */
+    .contact-description {
+        font-size: 21px;
+        line-height: 1.4;
+    }
+
+    /* Buttons */
+    .contact-buttons {
+        margin-top: 40px;
+        gap: 12px;
+    }
+
+    .contact-btn {
+        min-height: 55px;
+    }
+
+    .contact-email {
+        padding: 0 20px;
+        font-size: 14px;
+    }
+
+    .contact-social {
+        width: 55px;
+        height: 55px;
+    }
+
+    .contact-social svg {
+        width: 24px;
+        height: 24px;
+    }
+
+    /* Footer */
+    .site-footer {
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .footer-left {
+        gap: 12px;
+    }
+
+    .footer-logo img {
+        width: 30px;
+        height: 30px;
+    }
+
+    .footer-divider {
+        height: 28px;
+    }
+
+    .footer-left p {
+        font-size: 11px;
+    }
+
+    /* Nach-oben-Button */
+    .back-to-top {
+        padding: 12px 16px;
+        font-size: 12px;
+
+        /* Verhindert Zeilenumbruch */
+        white-space: nowrap;
+    }
+
+}
+
+
+/* ==========================================================
+   39. BARRIEREFREIHEIT
+
+   Animationen bei entsprechender
+   Systemeinstellung deaktivieren.
+========================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .contact-btn,
+    .footer-logo img,
+    .back-to-top {
+        transition: none;
+    }
+
+}
+
+/* Sichtbarer Fokus bei Tastaturbedienung */
+.contact-btn:focus-visible,
+.footer-logo:focus-visible,
+.back-to-top:focus-visible {
+    outline: 2px solid var(--text);
+    outline-offset: 5px;
+}
