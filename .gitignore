@@ -1,0 +1,35 @@
+# Zugangsdaten und Umgebungsvariablen
+
+.env
+
+.env.*
+
+!.env.example
+
+# Abhängigkeiten
+
+node_modules/
+
+# Build-Dateien
+
+dist/
+
+build/
+
+# Betriebssystem
+
+.DS_Store
+
+Thumbs.db
+
+# Editor
+
+.vscode/
+
+.idea/
+
+# Temporäre Dateien
+
+*.log
+
+*.tmp
