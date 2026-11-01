@@ -539,4 +539,140 @@ a {
         transition: none;
     }
 
+    /* ==========================================
+   HERO-HEADLINE IN GROSSBUCHSTABEN
+
+   Wandelt den gesamten Titel automatisch
+   in Grossbuchstaben um.
+========================================== */
+
+
+}
+
+/* ==========================================
+   HERO-HEADLINE IN GROSSBUCHSTABEN
+
+   Wandelt den gesamten Titel automatisch
+   in Grossbuchstaben um.
+========================================== */
+
+.hero h1 {
+    text-transform: uppercase;
+}
+/* ==========================================
+   18. HERO-HEADLINE
+
+   Die vier Tätigkeitsbereiche werden
+   gross und in Grossbuchstaben dargestellt.
+========================================== */
+
+.hero h1 {
+
+    /* Automatisch alle Buchstaben gross darstellen */
+    text-transform: uppercase;
+
+    /* Schriftgrösse für Desktop */
+    font-size: clamp(42px, 4.5vw, 72px);
+
+    /* Kompakter Abstand zwischen den Zeilen */
+    line-height: 1.08;
+
+    /* Leicht verringerter Buchstabenabstand */
+    letter-spacing: -0.055em;
+
+    /* Abstand zu den Buttons */
+    margin-bottom: 38px;
+}
+
+
+/* ==========================================
+   19. NAME UND BERUFSBEZEICHNUNG
+========================================== */
+
+.eyebrow {
+
+    /* Etwas grössere Beschriftung */
+    font-size: 13px;
+
+    /* Fett formatieren */
+    font-weight: 700;
+
+    /* Dezenter Buchstabenabstand */
+    letter-spacing: 2px;
+
+    /* Abstand zur Headline */
+    margin-bottom: 30px;
+}
+
+
+/* ==========================================
+   20. KUNDENLOGOS IN ORIGINALFARBE
+
+   Keine Graustufen, keine Transparenz
+   und keine Hover-Animationen.
+========================================== */
+
+.client-logos img {
+
+    /* Originalfarben beibehalten */
+    filter: none;
+
+    /* Logos vollständig sichtbar machen */
+    opacity: 1;
+
+    /* Keine Animationen */
+    transition: none;
+
+    /* Keine Vergrösserung */
+    transform: none;
+
+    /* Normaler Mauszeiger */
+    cursor: default;
+}
+
+
+/* ==========================================
+   21. HOVER-EFFEKT DEAKTIVIEREN
+
+   Die Logos verändern sich beim
+   Darüberfahren mit der Maus nicht.
+========================================== */
+
+.client-logos img:hover {
+
+    filter: none;
+
+    opacity: 1;
+
+    transform: none;
+}
+
+
+/* ==========================================
+   22. RESPONSIVE HEADLINE
+
+   Anpassung der Schriftgrösse für
+   Tablets und Smartphones.
+========================================== */
+
+@media (max-width: 900px) {
+
+    .hero h1 {
+        font-size: clamp(40px, 6vw, 62px);
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .hero h1 {
+        font-size: clamp(34px, 8vw, 48px);
+        line-height: 1.12;
+    }
+
+    .eyebrow {
+        font-size: 11px;
+        letter-spacing: 1.5px;
+    }
+
 }
