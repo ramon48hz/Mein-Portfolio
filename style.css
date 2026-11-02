@@ -1702,3 +1702,299 @@ a {
     outline: 2px solid var(--text);
     outline-offset: 5px;
 }
+
+/* =========================================
+   PROJEKTÜBERSICHT
+========================================= */
+
+.projects-page {
+    min-height: 100vh;
+    background: var(--background);
+    padding: 170px 6% 120px;
+}
+
+.projects-container {
+    max-width: 1320px;
+    margin: 0 auto;
+}
+
+/* Überschrift */
+
+.projects-header {
+    margin-bottom: 75px;
+}
+
+.projects-header .section-label {
+    margin-bottom: 30px;
+}
+
+.projects-header h1 {
+    font-size: clamp(55px, 8vw, 115px);
+    font-weight: 800;
+    line-height: 0.98;
+    letter-spacing: -0.065em;
+    margin-bottom: 35px;
+}
+
+.projects-intro {
+    max-width: 550px;
+    font-size: 18px;
+    line-height: 1.7;
+    color: var(--muted);
+}
+
+
+/* =========================================
+   PROJEKTKACHELN
+========================================= */
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+}
+
+/* Allgemeine Kachel */
+
+.project-tile {
+    position: relative;
+    display: block;
+    min-height: 500px;
+    overflow: hidden;
+    border-radius: 14px;
+    background-size: cover;
+    background-position: center;
+    color: white;
+    isolation: isolate;
+}
+
+/* Erste Kachel über gesamte Breite */
+
+.project-photo {
+    grid-column: 1 / -1;
+    min-height: 650px;
+}
+
+/* Hintergrundbilder */
+
+.project-photo {
+    background-image: url("assets/images/project-photo.jpg");
+}
+
+.project-video {
+    background-image: url("assets/images/project-video.jpg");
+}
+
+.project-corporate {
+    background-image: url("assets/images/project-corporate.jpg");
+}
+
+/* Dunkler Verlauf für bessere Lesbarkeit */
+
+.project-tile::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.65),
+        rgba(0, 0, 0, 0.05) 65%
+    );
+
+    z-index: -1;
+    transition: background 0.3s ease;
+}
+
+/* Inhalt innerhalb der Kacheln */
+
+.project-tile-content {
+    position: absolute;
+    inset: 0;
+    padding: 38px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+
+.project-category {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.project-tile-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 20px;
+}
+
+.project-tile h2 {
+    font-size: clamp(35px, 4vw, 65px);
+    line-height: 1.05;
+    letter-spacing: -0.045em;
+}
+
+/* Pfeil */
+
+.project-arrow {
+    width: 58px;
+    height: 58px;
+
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 26px;
+
+    transition: transform 0.3s ease,
+                background 0.3s ease;
+}
+
+/* Hover-Effekt */
+
+.project-tile:hover .project-arrow {
+    transform: rotate(45deg);
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.project-tile:hover {
+    filter: brightness(1.07);
+}
+
+
+/* =========================================
+   RESPONSIVE DESIGN
+========================================= */
+
+@media (max-width: 900px) {
+
+    .projects-page {
+        padding-top: 150px;
+    }
+
+    .project-photo {
+        min-height: 500px;
+    }
+
+    .project-tile {
+        min-height: 420px;
+    }
+
+    .project-tile-content {
+        padding: 28px;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .projects-page {
+        padding: 130px 24px 80px;
+    }
+
+    .projects-header {
+        margin-bottom: 50px;
+    }
+
+    .projects-header h1 {
+        font-size: clamp(42px, 11vw, 65px);
+    }
+
+    .projects-intro {
+        font-size: 16px;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .project-photo {
+        grid-column: auto;
+    }
+
+    .project-tile,
+    .project-photo {
+        min-height: 400px;
+    }
+
+    .project-tile-content {
+        padding: 25px;
+    }
+
+    .project-tile h2 {
+        font-size: 36px;
+    }
+
+    .project-arrow {
+        width: 48px;
+        height: 48px;
+        font-size: 22px;
+        flex-shrink: 0;
+    }
+
+}
+/* =========================================
+   FOOTER AUF UNTERSEITEN
+========================================= */
+
+/* Footer mit unserem gewohnten Hintergrund */
+
+.subpage-footer {
+    max-width: 1320px;
+    margin: 0 auto;
+
+    padding: 25px 0 35px;
+
+    border-top: 1px solid rgba(32, 33, 36, 0.15);
+}
+
+/* Trennlinie zwischen Logo und Copyright */
+
+.subpage-footer .footer-divider {
+    background: rgba(32, 33, 36, 0.2);
+}
+
+/* Button "Nach oben" */
+
+.subpage-back-to-top {
+    color: var(--text);
+
+    background: transparent;
+
+    border: 1px solid var(--border);
+}
+
+.subpage-back-to-top:hover {
+    background: rgba(32, 33, 36, 0.05);
+}
+
+
+/* =========================================
+   RESPONSIVE FOOTER
+========================================= */
+
+@media (max-width: 900px) {
+
+    .subpage-footer {
+        margin: 0 6%;
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .subpage-footer {
+        margin: 0 24px;
+        padding: 20px 0 30px;
+    }
+
+}
