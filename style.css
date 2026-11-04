@@ -1,6 +1,6 @@
 /* ==========================================================
-   PORTFOLIO WEBSITE – RAMON KÜNZLE
-   CSS STYLESHEET
+   PORTFOLIO – RAMON KÜNZLE
+   Bereinigtes CSS-Stylesheet
 
    Design:
    - Minimalistisch und hochwertig
@@ -11,7 +11,7 @@
 
 
 /* ==========================================================
-   1. DESIGNVARIABLEN
+   1. DESIGNVARIABLEN & GRUNDEINSTELLUNGEN
 ========================================================== */
 
 :root {
@@ -21,24 +21,16 @@
     --border: rgba(32, 33, 36, 0.55);
 }
 
-
-/* ==========================================================
-   2. GRUNDEINSTELLUNGEN
-========================================================== */
-
-/* Standardabstände des Browsers entfernen */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Sanftes Scrollen zwischen den Seitenbereichen */
 html {
     scroll-behavior: smooth;
 }
 
-/* Grunddesign der Website */
 body {
     font-family: Arial, Helvetica, sans-serif;
     background: var(--background);
@@ -46,7 +38,6 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
-/* Standardformatierung von Links entfernen */
 a {
     color: inherit;
     text-decoration: none;
@@ -54,201 +45,122 @@ a {
 
 
 /* ==========================================================
-   3. SCHWEBENDE NAVIGATION
-
-   Die Navbar bleibt beim Scrollen sichtbar.
-   Ihre Breite richtet sich nach dem Inhalt.
+   2. NAVIGATION
 ========================================================== */
 
 .site-header {
     position: fixed;
-
-    /* Abstand zum oberen Bildschirmrand */
     top: 20px;
     left: 0;
-
     width: 100%;
-
-    /* Navigation horizontal zentrieren */
     display: flex;
     justify-content: center;
-
     padding: 0 20px;
-
-    /* Navigation liegt über den anderen Elementen */
     z-index: 100;
 }
 
 .navbar {
     display: flex;
     align-items: center;
-
-    /* Etwas mehr Abstand zwischen Logo und Navigation */
     gap: 50px;
-
-    /* Breite automatisch an Inhalt anpassen */
     width: fit-content;
     max-width: 100%;
-
-    /* Innenabstände */
     padding: 12px 26px;
 
-    /* Halbtransparenter Hintergrund */
     background: rgba(255, 255, 255, 0.55);
-
-    /* Glas-Effekt */
     backdrop-filter: blur(18px);
     -webkit-backdrop-filter: blur(18px);
 
-    /* Abgerundete Ecken */
     border-radius: 100px;
-
-    /* Dezente Kontur */
     border: 1px solid rgba(255, 255, 255, 0.5);
-
-    /* Leichter Schatten */
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
 }
-
-
-/* ==========================================================
-   4. PERSÖNLICHES LOGO
-
-   Bilddatei: assets/RLogo.png
-
-   Hover:
-   - Leichte Vergrösserung
-   - Reduzierte Deckkraft
-========================================================== */
 
 .logo {
     display: flex;
     align-items: center;
     justify-content: center;
-
-    /* Logo behält seine Grösse */
     flex-shrink: 0;
 }
 
 .logo-image {
     width: 44px;
     height: 44px;
-
-    /* Bild proportional darstellen */
     object-fit: contain;
-
-    /* Leicht abgerundete Ecken */
     border-radius: 8px;
 
-    /* Sanfte Hover-Animation */
     transition:
         transform 0.3s ease,
         opacity 0.3s ease;
 }
 
-/* Logo beim Hover leicht vergrössern */
-.logo:hover .logo-image {
+.logo:hover .logo-image,
+.footer-logo:hover img {
     transform: scale(1.08);
     opacity: 0.8;
 }
 
-/* Fokusmarkierung für Tastaturbedienung */
-.logo:focus-visible {
-    outline: 2px solid var(--text);
-    outline-offset: 5px;
-    border-radius: 8px;
-}
-
-
-/* ==========================================================
-   5. NAVIGATIONSLINKS
-
-   Gleicher Hover-Effekt wie beim Logo.
-
-   Etwas grössere Abstände zwischen den Texten.
-========================================================== */
-
 .nav-links {
     display: flex;
     align-items: center;
-
-    /* Abstand zwischen den Navigationspunkten */
     gap: 34px;
 }
 
 .nav-links a {
+    display: inline-block;
     font-size: 13px;
     font-weight: 700;
 
-    /* Ermöglicht die Vergrösserungsanimation */
-    display: inline-block;
-
-    /* Gleiche Animation wie beim Logo */
     transition:
         transform 0.3s ease,
         opacity 0.3s ease;
 }
 
-/* Navigationstexte beim Hover vergrössern */
 .nav-links a:hover {
     transform: scale(1.08);
     opacity: 0.8;
 }
 
-/* Fokusmarkierung für Tastaturbedienung */
+/* Tastaturbedienung */
+
+.logo:focus-visible,
 .nav-links a:focus-visible,
-.btn:focus-visible {
+.btn:focus-visible,
+.contact-btn:focus-visible,
+.footer-logo:focus-visible,
+.back-to-top:focus-visible {
     outline: 2px solid var(--text);
     outline-offset: 5px;
 }
 
-
-/* ==========================================================
-   6. HERO SECTION
-
-   Hintergrundbild:
-   assets/images/hero.jpg
-========================================================== */
-
-.hero {
-    position: relative;
-
-    /* Hero mindestens so hoch wie der Bildschirm */
-    min-height: 100vh;
-    min-height: 100svh;
-
-    /* Inhalt vertikal zentrieren */
-    display: flex;
-    align-items: center;
-
-    /* Hintergrundbild */
-    background-image: url("assets/images/hero.jpg");
-
-    /* Bild füllt den Hero-Bereich */
-    background-size: cover;
-
-    /* Bild mittig positionieren */
-    background-position: center;
-
-    /* Überstehende Inhalte verhindern */
-    overflow: hidden;
+.logo:focus-visible {
+    border-radius: 8px;
 }
 
 
 /* ==========================================================
-   7. BILDÜBERLAGERUNG
-
-   Hellt die linke Seite auf, damit die
-   schwarze Schrift gut lesbar bleibt.
+   3. HERO SECTION
 ========================================================== */
+
+.hero {
+    position: relative;
+    min-height: 100vh;
+    min-height: 100svh;
+
+    display: flex;
+    align-items: center;
+
+    background-image: url("assets/images/hero.jpg");
+    background-size: cover;
+    background-position: center;
+
+    overflow: hidden;
+}
 
 .hero-overlay {
     position: absolute;
-
-    /* Überlagerung füllt den gesamten Bereich */
     inset: 0;
 
-    /* Verlauf von links nach rechts */
     background: linear-gradient(
         90deg,
         rgba(242, 240, 237, 0.96) 0%,
@@ -257,17 +169,8 @@ a {
         rgba(242, 240, 237, 0) 100%
     );
 
-    /* Klicks auf darunterliegende Elemente ermöglichen */
     pointer-events: none;
 }
-
-
-/* ==========================================================
-   8. HERO-CONTAINER
-
-   Bestimmt die Position und maximale Breite
-   der Inhalte im Hero-Bereich.
-========================================================== */
 
 .hero-container {
     position: relative;
@@ -275,9 +178,7 @@ a {
 
     width: 100%;
     max-width: 1440px;
-
     margin: 0 auto;
-
     padding: 140px 6% 100px;
 }
 
@@ -285,130 +186,68 @@ a {
     max-width: 720px;
 }
 
-
-/* ==========================================================
-   9. NAME UND BERUFSBEZEICHNUNG
-
-   RAMON KÜNZLE · MEDIA ENGINEER
-========================================================== */
-
 .eyebrow {
     font-size: 13px;
     font-weight: 700;
-
-    /* Dezenter Buchstabenabstand */
     letter-spacing: 2px;
-
-    /* Abstand zur Headline */
     margin-bottom: 30px;
 }
 
-
-/* ==========================================================
-   10. HAUPTÜBERSCHRIFT
-
-   FOTOGRAFIE
-   VIDEOGRAFIE
-   SOCIAL MEDIA
-   CORPORATE
-========================================================== */
-
 .hero h1 {
-    /* Responsive Schriftgrösse */
     font-size: clamp(42px, 4.5vw, 72px);
-
-    /* Kompakter Zeilenabstand */
     line-height: 1.08;
-
-    /* Moderner, enger Buchstabenabstand */
     letter-spacing: -0.055em;
-
-    /* Fette Schrift */
     font-weight: 800;
-
-    /* Gesamte Headline in Grossbuchstaben */
     text-transform: uppercase;
-
-    /* Abstand zu den Buttons */
     margin-bottom: 38px;
 }
 
 
 /* ==========================================================
-   11. HERO-BUTTONS
+   4. HERO-BUTTONS
 ========================================================== */
 
 .hero-buttons {
     display: flex;
     align-items: center;
-
-    /* Abstand zwischen den Buttons */
     gap: 16px;
-
-    /* Umbruch auf kleineren Bildschirmen erlauben */
     flex-wrap: wrap;
 }
-
-
-/* ==========================================================
-   12. ALLGEMEINES BUTTON-DESIGN
-========================================================== */
 
 .btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
 
-    /* Innenabstände */
     padding: 15px 25px;
-
-    /* Abgerundete Ecken */
     border-radius: 100px;
 
     font-size: 14px;
     font-weight: 600;
 
-    /* Sanfte Hover-Animation */
     transition:
         background 0.25s ease,
         transform 0.25s ease;
 }
 
-/* Button bewegt sich leicht nach oben */
 .btn:hover {
     transform: translateY(-3px);
 }
 
-
-/* ==========================================================
-   13. TRANSPARENTER BUTTON MIT KONTUR
-========================================================== */
-
 .btn-outline {
     background: transparent;
-
-    /* Dünne dunkle Kontur */
     border: 1px solid var(--border);
 }
 
-
-/* ==========================================================
-   14. HALBTRANSPARENTER GLAS-BUTTON
-========================================================== */
-
 .btn-glass {
-    /* Halbtransparenter Hintergrund */
     background: rgba(255, 255, 255, 0.25);
 
-    /* Hintergrundunschärfe */
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
 
-    /* Helle Kontur */
     border: 1px solid rgba(255, 255, 255, 0.8);
 }
 
-/* Buttons werden beim Hover etwas heller */
 .btn-outline:hover,
 .btn-glass:hover {
     background: rgba(255, 255, 255, 0.55);
@@ -416,300 +255,122 @@ a {
 
 
 /* ==========================================================
-   15. KUNDENLOGOS
-
-   Sieben Logos unterhalb der Hero-Buttons.
-
-   Originalfarben und keine Hover-Effekte.
+   5. KUNDENLOGOS
 ========================================================== */
 
 .client-logos {
-    /* Logos nebeneinander darstellen */
     display: flex;
     align-items: center;
-
-    /* Abstand zwischen den Logos */
     gap: 28px;
-
-    /* Abstand zu den Buttons */
     margin-top: 55px;
-
-    /* Logos dürfen umbrechen */
     flex-wrap: wrap;
-
-    /* Maximale Breite */
     max-width: 750px;
 }
 
-
-/* ==========================================================
-   16. EINZELNE KUNDENLOGOS
-========================================================== */
-
 .client-logos img {
-    /* Einheitliche Höhe */
     height: 30px;
-
-    /* Proportionale Breite */
     width: auto;
-
-    /* Keine Verzerrung */
+    max-width: 105px;
     object-fit: contain;
 
-    /* Maximale Breite */
-    max-width: 105px;
-
-    /* Originalfarben beibehalten */
     filter: none;
-
-    /* Vollständig sichtbar */
     opacity: 1;
-
-    /* Keine Animation */
     transition: none;
-
-    /* Normaler Mauszeiger */
     cursor: default;
 }
 
 
 /* ==========================================================
-   17. TABLET-ANSICHT
+   6. ÜBER MICH – GRUNDLAYOUT & HINTERGRUND
 
-   Anpassungen für Bildschirme bis 900px.
-========================================================== */
-
-@media (max-width: 900px) {
-
-    /* HERO */
-
-    .hero-container {
-        padding: 160px 6% 90px;
-    }
-
-    .hero h1 {
-        font-size: clamp(40px, 6vw, 62px);
-    }
-
-    /* Hintergrundverlauf verstärken */
-    .hero-overlay {
-        background: linear-gradient(
-            90deg,
-            rgba(242, 240, 237, 0.96),
-            rgba(242, 240, 237, 0.5)
-        );
-    }
-
-    /* KUNDENLOGOS */
-
-    .client-logos {
-        gap: 22px;
-        margin-top: 40px;
-    }
-
-    .client-logos img {
-        height: 26px;
-        max-width: 90px;
-    }
-}
-
-
-/* ==========================================================
-   18. SMARTPHONE-ANSICHT
-
-   Optimiert für Bildschirme bis 600px.
-
-   Ziele:
-   - Portrait möglichst sichtbar halten
-   - Texte unterhalb des Portraits
-   - Kompakte Navigation
-   - Responsive Buttons und Kundenlogos
-========================================================== */
-
-@media (max-width: 600px) {
-
-    /* ------------------------------------------
-       NAVIGATION
-    ------------------------------------------ */
-
-    .site-header {
-        top: 12px;
-        padding: 0 12px;
-    }
-
-    .navbar {
-        /* Kompakter Abstand zwischen Logo und Text */
-        gap: 20px;
-
-        /* Kleinere Innenabstände */
-        padding: 10px 16px;
-    }
-
-    .logo-image {
-        width: 34px;
-        height: 34px;
-    }
-
-    .nav-links {
-        gap: 16px;
-    }
-
-    .nav-links a {
-        font-size: 11px;
-    }
-
-
-    /* ------------------------------------------
-       HERO-BEREICH
-    ------------------------------------------ */
-
-    .hero {
-        /* Hero darf mit dem Inhalt wachsen */
-        min-height: 100svh;
-
-        /* Portrait eher rechts positionieren */
-        background-position: 70% top;
-
-        /* Hintergrundbild füllt den Bereich */
-        background-size: cover;
-
-        /* Inhalt unten ausrichten */
-        align-items: flex-end;
-    }
-
-
-    /* ------------------------------------------
-       BILDÜBERLAGERUNG
-
-       Oben bleibt das Portrait sichtbar.
-       Unten entsteht ein heller Textbereich.
-    ------------------------------------------ */
-
-    .hero-overlay {
-        background: linear-gradient(
-            to bottom,
-            rgba(242, 240, 237, 0.05) 0%,
-            rgba(242, 240, 237, 0.15) 25%,
-            rgba(242, 240, 237, 0.85) 45%,
-            rgba(242, 240, 237, 0.98) 65%,
-            rgba(242, 240, 237, 1) 100%
-        );
-    }
-
-
-    /* ------------------------------------------
-       HERO-INHALT
-
-       Oberer Abstand schafft Platz fürs Portrait.
-    ------------------------------------------ */
-
-    .hero-container {
-        width: 100%;
-        padding: 380px 24px 60px;
-    }
-
-
-    /* ------------------------------------------
-       NAME UND BERUFSBEZEICHNUNG
-    ------------------------------------------ */
-
-    .eyebrow {
-        font-size: 11px;
-        letter-spacing: 1.5px;
-        margin-bottom: 24px;
-    }
-
-
-    /* ------------------------------------------
-       HAUPTÜBERSCHRIFT
-    ------------------------------------------ */
-
-    .hero h1 {
-        font-size: clamp(34px, 8vw, 48px);
-        line-height: 1.08;
-        margin-bottom: 28px;
-    }
-
-
-    /* ------------------------------------------
-       BUTTONS
-    ------------------------------------------ */
-
-    .hero-buttons {
-        gap: 12px;
-        flex-wrap: wrap;
-    }
-
-    .btn {
-        padding: 13px 20px;
-        font-size: 13px;
-    }
-
-
-    /* ------------------------------------------
-       KUNDENLOGOS
-    ------------------------------------------ */
-
-    .client-logos {
-        flex-wrap: wrap;
-        gap: 20px;
-        margin-top: 35px;
-        justify-content: flex-start;
-    }
-
-    .client-logos img {
-        height: 24px;
-        max-width: 80px;
-    }
-}
-
-
-/* ==========================================================
-   19. BARRIEREFREIHEIT
-
-   Animationen werden deaktiviert, wenn Nutzer
-   reduzierte Bewegungen bevorzugen.
-========================================================== */
-
-@media (prefers-reduced-motion: reduce) {
-
-    /* Sanftes Scrollen deaktivieren */
-    html {
-        scroll-behavior: auto;
-    }
-
-    /* Hover-Animationen deaktivieren */
-    .btn,
-    .nav-links a,
-    .logo-image {
-        transition: none;
-    }
-}
-
-/* ==========================================================
-   20. ÜBER MICH – GRUNDLAYOUT
-
-   Dieser Bereich folgt direkt auf die Hero Section.
-   Er verwendet die gleiche neutrale Farbpalette.
+   Der animierte Farbverlauf und die Glasoptik
+   sind direkt in die bestehenden Regeln integriert.
 ========================================================== */
 
 .about-section {
-    background: var(--background);
-
-    /* Grosszügige Abstände */
+    position: relative;
     padding: 130px 6%;
-
-    /* Beim Scrollen bleibt Abstand zur fixierten Navbar */
     scroll-margin-top: 80px;
+
+    background:
+        radial-gradient(
+            ellipse at 85% 15%,
+            rgba(202, 216, 228, 0.65) 0%,
+            transparent 48%
+        ),
+        radial-gradient(
+            ellipse at 5% 75%,
+            rgba(186, 204, 222, 0.7) 0%,
+            transparent 50%
+        ),
+        radial-gradient(
+            ellipse at 65% 90%,
+            rgba(218, 224, 230, 0.55) 0%,
+            transparent 45%
+        ),
+        linear-gradient(
+            135deg,
+            #f2f0ed 0%,
+            #e9e9e8 40%,
+            #e0e6ec 75%,
+            #f2f0ed 100%
+        );
+
+    overflow: hidden;
+    isolation: isolate;
 }
 
-/* Zentrierter Inhaltsbereich */
+/* Animierte Hintergrundflächen */
+
+.about-section::before,
+.about-section::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    pointer-events: none;
+    border-radius: 50%;
+    will-change: transform;
+}
+
+.about-section::before {
+    width: 120%;
+    height: 650px;
+    top: 18%;
+    left: 15%;
+
+    background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.35),
+        rgba(195, 211, 225, 0.3)
+    );
+
+    filter: blur(3px);
+    animation: gradientFlowTop 35s ease-in-out infinite alternate;
+}
+
+.about-section::after {
+    width: 130%;
+    height: 750px;
+    bottom: 5%;
+    left: -35%;
+
+    background: linear-gradient(
+        135deg,
+        rgba(178, 199, 219, 0.3),
+        rgba(255, 255, 255, 0.25)
+    );
+
+    filter: blur(4px);
+    animation: gradientFlowBottom 45s ease-in-out infinite alternate;
+}
+
 .about-container {
+    position: relative;
+    z-index: 1;
     max-width: 1320px;
     margin: 0 auto;
 }
 
-/* Kleine Beschriftungen über den Überschriften */
 .section-label {
     font-size: 12px;
     font-weight: 700;
@@ -720,44 +381,29 @@ a {
 
 
 /* ==========================================================
-   21. PERSÖNLICHE VORSTELLUNG
-
-   Desktop:
-   Bild links, Text rechts.
+   7. PERSÖNLICHE VORSTELLUNG
 ========================================================== */
 
 .about-intro {
     display: grid;
-
-    /* Zwei gleich breite Spalten */
     grid-template-columns: 1fr 1fr;
-
-    /* Abstand zwischen Bild und Text */
     gap: 90px;
-
-    /* Inhalte vertikal zentrieren */
     align-items: center;
 }
 
-/* Bildcontainer */
 .about-image {
     width: 100%;
     overflow: hidden;
     border-radius: 12px;
 }
 
-/* Dein Bild work.png */
 .about-image img {
     display: block;
-
     width: 100%;
     height: 600px;
-
-    /* Bild wird nicht verzerrt */
     object-fit: cover;
 }
 
-/* Überschrift */
 .about-text h2 {
     font-size: clamp(36px, 4vw, 58px);
     line-height: 1.08;
@@ -765,7 +411,6 @@ a {
     margin-bottom: 32px;
 }
 
-/* Vorstellungstext */
 .about-text p:not(.section-label) {
     font-size: 16px;
     line-height: 1.85;
@@ -773,278 +418,34 @@ a {
     margin-bottom: 20px;
 }
 
-/* Beim letzten Absatz keinen zusätzlichen Abstand */
 .about-text p:last-child {
     margin-bottom: 0;
 }
 
 
 /* ==========================================================
-   22. WAS ICH MITBRINGE
+   8. ERFAHRUNG & ANGEBOT
 
-   Drei Kacheln mit Berufserfahrung,
-   Ausbildung und Projektpraxis.
+   Ursprüngliche und nachträglich kompaktere
+   Kachelregeln wurden zusammengeführt.
 ========================================================== */
 
-.experience-section {
-    margin-top: 160px;
-}
-
-/* Überschriften der beiden Kachelbereiche */
-.experience-section h2,
-.services-section h2 {
-    font-size: clamp(36px, 4vw, 58px);
-    letter-spacing: -0.05em;
-    line-height: 1.1;
-    margin-bottom: 50px;
-}
-
-/* Drei Spalten auf Desktop */
-.experience-grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 20px;
-}
-
-/* Einzelne Erfahrungskachel */
-.experience-card {
-    background: #e9e6e1;
-    border: 1px solid rgba(32, 33, 36, 0.06);
-    border-radius: 14px;
-
-    padding: 36px;
-    min-height: 290px;
-
-    display: flex;
-    flex-direction: column;
-}
-
-/* Nummerierung */
-.card-number {
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    opacity: 0.5;
-
-    margin-bottom: 50px;
-}
-
-/* Kachelüberschrift */
-.experience-card h3 {
-    font-size: 24px;
-    line-height: 1.2;
-    letter-spacing: -0.03em;
-
-    margin-bottom: 18px;
-}
-
-/* Kachelbeschreibung */
-.experience-card p {
-    font-size: 15px;
-    line-height: 1.65;
-    color: var(--muted);
-}
-
-
-/* ==========================================================
-   23. MEIN ANGEBOT
-
-   Sieben Leistungen mit einheitlichen SVG-Icons.
-========================================================== */
-
-.services-section {
-    margin-top: 160px;
-}
-
-/* Vier Spalten auf Desktop */
-.services-grid {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 20px;
-}
-
-/* Einzelne Leistungskachel */
-.service-card {
-    background: rgba(255, 255, 255, 0.45);
-    border: 1px solid rgba(32, 33, 36, 0.08);
-    border-radius: 14px;
-
-    min-height: 210px;
-    padding: 30px;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-/* Einheitliche Darstellung aller Piktogramme */
-.service-icon {
-    width: 42px;
-    height: 42px;
-
-    /* Dunkle Farbe aus unserem Designsystem */
-    color: var(--text);
-
-    /* Icons bleiben proportional */
-    flex-shrink: 0;
-}
-
-/* Bezeichnung der Dienstleistung */
-.service-card h3 {
-    font-size: 18px;
-    line-height: 1.35;
-    letter-spacing: -0.02em;
-
-    /* Lange Wörter dürfen bei Bedarf umbrechen */
-    overflow-wrap: break-word;
-}
-
-
-/* ==========================================================
-   24. TABLET-ANSICHT
-
-   Bild und Text bleiben nebeneinander.
-   Die Kacheln werden zweispaltig dargestellt.
-========================================================== */
-
-@media (max-width: 900px) {
-
-    /* Abstand zwischen Bild und Text reduzieren */
-    .about-intro {
-        gap: 45px;
-    }
-
-    .about-image img {
-        height: 500px;
-    }
-
-    /* Zwei Erfahrungskacheln pro Zeile */
-    .experience-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    /* Zwei Angebotskacheln pro Zeile */
-    .services-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    /* Vertikale Abstände reduzieren */
-    .experience-section,
-    .services-section {
-        margin-top: 110px;
-    }
-}
-
-
-/* ==========================================================
-   25. SMARTPHONE-ANSICHT
-
-   Bild und Text untereinander.
-   Erfahrungskacheln einspaltig.
-   Angebotskacheln zweispaltig.
-========================================================== */
-
-@media (max-width: 600px) {
-
-    /* Kleinere Seitenabstände */
-    .about-section {
-        padding: 90px 24px;
-    }
-
-    /* Bild über dem Vorstellungstext */
-    .about-intro {
-        grid-template-columns: 1fr;
-        gap: 40px;
-    }
-
-    /* Bildhöhe reduzieren */
-    .about-image img {
-        height: 420px;
-    }
-
-    /* Überschriften an Smartphone-Grösse anpassen */
-    .about-text h2,
-    .experience-section h2,
-    .services-section h2 {
-        font-size: 36px;
-    }
-
-    /* Erfahrungskacheln untereinander */
-    .experience-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .experience-card {
-        min-height: 240px;
-        padding: 28px;
-    }
-
-    .card-number {
-        margin-bottom: 35px;
-    }
-
-    /* Zwei Angebotskacheln nebeneinander */
-    .services-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 12px;
-    }
-
-    .service-card {
-        min-height: 175px;
-        padding: 20px;
-    }
-
-    /* Kleinere Piktogramme */
-    .service-icon {
-        width: 34px;
-        height: 34px;
-    }
-
-    /* Kleinere Leistungsbezeichnungen */
-    .service-card h3 {
-        font-size: 15px;
-
-        /* Verhindert Überlaufen langer Wörter */
-        overflow-wrap: anywhere;
-    }
-
-    /* Kleinere Abstände zwischen den Abschnitten */
-    .experience-section,
-    .services-section {
-        margin-top: 100px;
-    }
-}
-
-/* ==========================================================
-   26. KOMPAKTERE ERFAHRUNGS- UND ANGEBOTSBEREICHE
-
-   Die beiden unteren Bereiche werden platzsparender
-   dargestellt, ohne das Design zu verändern.
-========================================================== */
-
-
-/* ==========================================================
-   ABSTÄNDE ZWISCHEN DEN ABSCHNITTEN
-========================================================== */
-
-/* Weniger Abstand nach dem Über-mich-Bereich */
 .experience-section {
     margin-top: 90px;
 }
 
-/* Weniger Abstand zwischen Erfahrung und Angebot */
 .services-section {
     margin-top: 80px;
 }
 
-/* Kompaktere Überschriften */
 .experience-section h2,
 .services-section h2 {
     font-size: clamp(30px, 3vw, 44px);
+    letter-spacing: -0.05em;
+    line-height: 1.1;
     margin-bottom: 28px;
 }
 
-/* Weniger Abstand zwischen Abschnittslabel und Titel */
 .experience-section .section-label,
 .services-section .section-label {
     margin-bottom: 14px;
@@ -1052,198 +453,187 @@ a {
 
 
 /* ==========================================================
-   ERFAHRUNGSKACHELN
+   9. ERFAHRUNGSKACHELN
 ========================================================== */
 
-/* Kleinere Abstände zwischen den Kacheln */
 .experience-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 14px;
 }
 
-/* Flachere Kacheln */
+/* Gemeinsame Glasoptik */
+
+.experience-card,
+.service-card,
+.skill-card {
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    border-radius: 16px;
+}
+
+.experience-card,
+.skill-card {
+    background: rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 30px rgba(35, 45, 55, 0.035);
+}
+
 .experience-card {
+    display: flex;
+    flex-direction: column;
     min-height: 190px;
     padding: 24px;
 }
 
-/* Nummerierung näher an den Titel rücken */
 .card-number {
-    margin-bottom: 22px;
     font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    opacity: 0.5;
+    margin-bottom: 22px;
 }
 
-/* Kleinere Kachelüberschriften */
 .experience-card h3 {
     font-size: 20px;
+    line-height: 1.2;
+    letter-spacing: -0.03em;
     margin-bottom: 10px;
 }
 
-/* Kompakterer Beschreibungstext */
 .experience-card p {
     font-size: 14px;
     line-height: 1.5;
+    color: var(--muted);
 }
 
 
 /* ==========================================================
-   ANGEBOTSPORTFOLIO
+   10. ANGEBOTSKACHELN
 ========================================================== */
 
-/* Kleinere Abstände zwischen den Kacheln */
 .services-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 12px;
 }
 
-/* Kompakte Kacheln mit horizontaler Anordnung */
 .service-card {
-    min-height: 95px;
-    padding: 20px;
-
-    /* Piktogramm links, Text rechts */
+    display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: flex-start;
-
     gap: 16px;
+
+    min-height: 95px;
+    padding: 20px;
+
+    background: rgba(255, 255, 255, 0.16);
+    box-shadow: 0 8px 30px rgba(35, 45, 55, 0.025);
 }
 
-/* Kleinere Piktogramme */
 .service-icon {
     width: 30px;
     height: 30px;
+    color: var(--text);
+    flex-shrink: 0;
 }
 
-/* Kompaktere Leistungsbezeichnungen */
 .service-card h3 {
     font-size: 15px;
     line-height: 1.3;
+    letter-spacing: -0.02em;
+    overflow-wrap: break-word;
 }
 
 
 /* ==========================================================
-   TABLET-ANSICHT
+   11. SKILLS & TECHNOLOGIEN
 ========================================================== */
 
-@media (max-width: 900px) {
+.skills-section {
+    margin-top: 95px;
+}
 
-    .experience-section {
-        margin-top: 75px;
-    }
+.skills-section .section-label {
+    margin-bottom: 14px;
+}
 
-    .services-section {
-        margin-top: 70px;
-    }
+.skills-section h2 {
+    font-size: clamp(30px, 3vw, 44px);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.05em;
+    margin-bottom: 20px;
+}
 
-    .experience-card {
-        min-height: 180px;
-    }
+.skills-intro {
+    max-width: 650px;
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--muted);
+    margin-bottom: 38px;
+}
 
-    .service-card {
-        min-height: 90px;
-    }
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 14px;
+    align-items: stretch;
+}
+
+.skill-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    min-height: 275px;
+    min-width: 0;
+    padding: 24px 18px;
+}
+
+.skill-logo {
+    width: 58px;
+    height: 58px;
+    object-fit: contain;
+    flex-shrink: 0;
+    margin-bottom: 22px;
+}
+
+.skill-card h3 {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.25;
+    letter-spacing: -0.025em;
+    margin-bottom: 14px;
+    overflow-wrap: anywhere;
+}
+
+.skill-card p {
+    font-size: 14px;
+    line-height: 1.65;
+    color: var(--muted);
+    overflow-wrap: anywhere;
 }
 
 
 /* ==========================================================
-   SMARTPHONE-ANSICHT
-========================================================== */
-
-@media (max-width: 600px) {
-
-    /* Weniger Abstand zwischen den Abschnitten */
-    .experience-section,
-    .services-section {
-        margin-top: 65px;
-    }
-
-    /* Kompakte Erfahrungskacheln */
-    .experience-card {
-        min-height: auto;
-        padding: 22px;
-    }
-
-    .card-number {
-        margin-bottom: 14px;
-    }
-
-    .experience-card h3 {
-        font-size: 19px;
-    }
-
-    /* Angebotskacheln auf kleinen Bildschirmen */
-    .services-grid {
-        grid-template-columns: 1fr 1fr;
-        gap: 10px;
-    }
-
-    .service-card {
-        min-height: 110px;
-        padding: 14px;
-
-        /* Auf schmalen Smartphones: Icon über Text */
-        flex-direction: column;
-        align-items: flex-start;
-        justify-content: space-between;
-
-        gap: 12px;
-    }
-
-    .service-icon {
-        width: 26px;
-        height: 26px;
-    }
-
-    .service-card h3 {
-        font-size: 13px;
-        line-height: 1.3;
-    }
-}
-
-/* ==========================================================
-   27. KONTAKTBEREICH
-
-   Abschluss des Onepagers.
-
-   Design:
-   - Natürliches Bergpanorama
-   - Warme Farben
-   - Grosse Typografie
-   - Transparente Buttons
-   - Footer mit Nach-oben-Button
+   12. KONTAKTBEREICH
 ========================================================== */
 
 .contact-section {
-
-    /* Positionierung für den Hintergrundverlauf */
     position: relative;
-
-    /* Mindestens eine Bildschirmhöhe */
     min-height: 100vh;
     min-height: 100svh;
 
-    /* Hintergrundbild */
     background-image: url("assets/images/contact.jpg");
-
-    /* Bild füllt den gesamten Bereich */
     background-size: cover;
-
-    /* Landschaft mittig positionieren */
     background-position: center;
-
-    /* Neutrale Hintergrundfarbe als Fallback */
     background-color: #ded6cd;
 
-    /* Abstand zur fixierten Navigation */
     scroll-margin-top: 0;
 }
-
-
-/* ==========================================================
-   28. HINTERGRUNDVERLAUF
-
-   Der Verlauf hellt den oberen und linken Bereich auf,
-   damit die Texte gut lesbar bleiben.
-========================================================== */
 
 .contact-overlay {
     position: absolute;
@@ -1256,176 +646,103 @@ a {
         rgba(242, 240, 237, 0.05) 100%
     );
 
-    /* Overlay blockiert keine Klicks */
     pointer-events: none;
 }
-
-
-/* ==========================================================
-   29. KONTAKT-CONTAINER
-
-   Verteilt Kontaktinhalt und Footer
-   über die Höhe des Bereichs.
-========================================================== */
 
 .contact-container {
     position: relative;
     z-index: 2;
 
-    /* Maximale Inhaltsbreite */
     max-width: 1440px;
-
-    /* Mindestens Bildschirmhöhe */
     min-height: 100vh;
     min-height: 100svh;
 
-    /* Horizontal zentrieren */
     margin: 0 auto;
-
-    /* Innenabstände */
     padding: 160px 6% 35px;
 
-    /* Inhalt oben, Footer unten */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-
     gap: 100px;
 }
-
-
-/* ==========================================================
-   30. KONTAKTINHALT
-========================================================== */
 
 .contact-content {
     max-width: 1000px;
 }
 
-/* Kleine Abschnittsbezeichnung */
 .contact-content .section-label {
     margin-bottom: 50px;
 }
 
-/* Grosse Headline */
 .contact-content h2 {
-
-    /* Sehr grosse, responsive Schrift */
     font-size: clamp(72px, 9vw, 140px);
-
-    /* Kompakter Zeilenabstand */
     line-height: 0.95;
-
-    /* Enger Buchstabenabstand */
     letter-spacing: -0.065em;
-
     font-weight: 800;
-
-    /* Abstand zum Leadtext */
     margin-bottom: 30px;
 }
 
-/* Leadtext */
 .contact-description {
     font-size: clamp(20px, 2.5vw, 34px);
-
     line-height: 1.4;
-
     color: var(--muted);
 }
 
 
 /* ==========================================================
-   31. KONTAKTBUTTONS
-
-   E-Mail und Social-Media-Buttons
-   im transparenten Glasdesign.
+   13. KONTAKTBUTTONS
 ========================================================== */
 
 .contact-buttons {
     display: flex;
     align-items: center;
-
-    /* Abstand zwischen den Buttons */
     gap: 18px;
-
-    /* Abstand zum Leadtext */
     margin-top: 55px;
-
-    /* Umbruch auf kleineren Bildschirmen */
     flex-wrap: wrap;
 }
 
-
-/* Allgemeines Design aller Kontaktbuttons */
 .contact-btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-
-    /* Abstand zwischen Icon und Text */
     gap: 14px;
 
-    /* Höhe der Buttons */
     min-height: 64px;
 
-    /* Transparenter Hintergrund */
     background: rgba(255, 255, 255, 0.15);
-
-    /* Glas-Effekt */
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
 
-    /* Helle Kontur */
     border: 1px solid rgba(255, 255, 255, 0.9);
-
-    /* Vollständig abgerundete Ecken */
     border-radius: 100px;
 
-    /* Weiche Hover-Animation */
     transition:
         transform 0.3s ease,
         background 0.3s ease,
         opacity 0.3s ease;
 }
 
-/* Hover-Effekt */
 .contact-btn:hover {
     transform: translateY(-3px);
     background: rgba(255, 255, 255, 0.45);
 }
 
-
-/* ==========================================================
-   32. E-MAIL-BUTTON
-========================================================== */
-
 .contact-email {
     padding: 0 30px;
-
     font-size: 16px;
     font-weight: 700;
 }
 
-/* Briefumschlag */
 .contact-email svg {
     width: 24px;
     height: 24px;
 }
 
-
-/* ==========================================================
-   33. SOCIAL-MEDIA-BUTTONS
-========================================================== */
-
 .contact-social {
-
-    /* Runde Buttons */
     width: 64px;
     height: 64px;
 }
 
-/* LinkedIn- und Instagram-Piktogramme */
 .contact-social svg {
     width: 27px;
     height: 27px;
@@ -1433,30 +750,18 @@ a {
 
 
 /* ==========================================================
-   34. FOOTER
-
-   Transparenter Footer mit feiner Trennlinie.
+   14. FOOTER
 ========================================================== */
 
 .site-footer {
-
-    /* Dünne Linie über dem Footer */
-    border-top: 1px solid rgba(255, 255, 255, 0.65);
-
-    /* Abstand zur Trennlinie */
-    padding-top: 18px;
-
     display: flex;
     align-items: center;
     justify-content: space-between;
-
     gap: 30px;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.65);
+    padding-top: 18px;
 }
-
-
-/* ==========================================================
-   35. FOOTER – LINKE SEITE
-========================================================== */
 
 .footer-left {
     display: flex;
@@ -1464,17 +769,14 @@ a {
     gap: 28px;
 }
 
-/* Persönliches Logo */
 .footer-logo {
     display: inline-flex;
     align-items: center;
 }
 
-/* Logo im Footer */
 .footer-logo img {
     width: 40px;
     height: 40px;
-
     object-fit: contain;
 
     transition:
@@ -1482,68 +784,40 @@ a {
         opacity 0.3s ease;
 }
 
-/* Gleicher Hover-Effekt wie in der Navbar */
-.footer-logo:hover img {
-    transform: scale(1.08);
-    opacity: 0.8;
-}
-
-/* Vertikale Trennlinie */
 .footer-divider {
     width: 1px;
     height: 36px;
-
     background: rgba(255, 255, 255, 0.7);
 }
 
-/* Copyright */
 .footer-left p {
     font-size: 13px;
     font-weight: 500;
 }
 
-
-/* ==========================================================
-   36. NACH-OBEN-BUTTON
-
-   Gut sichtbar unten rechts.
-========================================================== */
-
 .back-to-top {
-
     display: inline-flex;
     align-items: center;
     justify-content: center;
 
-    /* Innenabstände */
     padding: 14px 25px;
 
-    /* Transparenter Hintergrund */
     background: rgba(0, 0, 0, 0.12);
-
-    /* Glas-Effekt */
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
 
-    /* Weisse Kontur */
     border: 1.5px solid rgba(255, 255, 255, 0.95);
-
-    /* Abgerundete Form */
     border-radius: 100px;
 
-    /* Helle Schrift für dunkleren Landschaftsbereich */
     color: #ffffff;
-
     font-size: 14px;
     font-weight: 700;
 
-    /* Hover-Animation */
     transition:
         transform 0.3s ease,
         background 0.3s ease;
 }
 
-/* Hover-Effekt */
 .back-to-top:hover {
     transform: translateY(-3px);
     background: rgba(0, 0, 0, 0.3);
@@ -1551,161 +825,8 @@ a {
 
 
 /* ==========================================================
-   37. TABLET-ANSICHT
+   15. PROJEKTÜBERSICHT
 ========================================================== */
-
-@media (max-width: 900px) {
-
-    .contact-container {
-        padding: 150px 6% 30px;
-    }
-
-    .contact-content h2 {
-        font-size: clamp(70px, 10vw, 110px);
-    }
-
-    .contact-content .section-label {
-        margin-bottom: 35px;
-    }
-
-}
-
-
-/* ==========================================================
-   38. SMARTPHONE-ANSICHT
-
-   Optimiert für kleinere Bildschirme.
-========================================================== */
-
-@media (max-width: 600px) {
-
-    /* Hintergrundbild anpassen */
-    .contact-section {
-        background-position: 65% center;
-    }
-
-    /* Stärkerer Verlauf für bessere Lesbarkeit */
-    .contact-overlay {
-        background: linear-gradient(
-            to bottom,
-            rgba(242, 240, 237, 0.85) 0%,
-            rgba(242, 240, 237, 0.5) 50%,
-            rgba(0, 0, 0, 0.15) 100%
-        );
-    }
-
-    /* Kontaktinhalt und Footer */
-    .contact-container {
-        padding: 130px 24px 25px;
-
-        gap: 100px;
-    }
-
-    /* Abschnittsbezeichnung */
-    .contact-content .section-label {
-        margin-bottom: 30px;
-    }
-
-    /* Headline */
-    .contact-content h2 {
-        font-size: clamp(54px, 13vw, 78px);
-        margin-bottom: 24px;
-    }
-
-    /* Leadtext */
-    .contact-description {
-        font-size: 21px;
-        line-height: 1.4;
-    }
-
-    /* Buttons */
-    .contact-buttons {
-        margin-top: 40px;
-        gap: 12px;
-    }
-
-    .contact-btn {
-        min-height: 55px;
-    }
-
-    .contact-email {
-        padding: 0 20px;
-        font-size: 14px;
-    }
-
-    .contact-social {
-        width: 55px;
-        height: 55px;
-    }
-
-    .contact-social svg {
-        width: 24px;
-        height: 24px;
-    }
-
-    /* Footer */
-    .site-footer {
-        align-items: flex-start;
-        gap: 20px;
-    }
-
-    .footer-left {
-        gap: 12px;
-    }
-
-    .footer-logo img {
-        width: 30px;
-        height: 30px;
-    }
-
-    .footer-divider {
-        height: 28px;
-    }
-
-    .footer-left p {
-        font-size: 11px;
-    }
-
-    /* Nach-oben-Button */
-    .back-to-top {
-        padding: 12px 16px;
-        font-size: 12px;
-
-        /* Verhindert Zeilenumbruch */
-        white-space: nowrap;
-    }
-
-}
-
-
-/* ==========================================================
-   39. BARRIEREFREIHEIT
-
-   Animationen bei entsprechender
-   Systemeinstellung deaktivieren.
-========================================================== */
-
-@media (prefers-reduced-motion: reduce) {
-
-    .contact-btn,
-    .footer-logo img,
-    .back-to-top {
-        transition: none;
-    }
-
-}
-
-/* Sichtbarer Fokus bei Tastaturbedienung */
-.contact-btn:focus-visible,
-.footer-logo:focus-visible,
-.back-to-top:focus-visible {
-    outline: 2px solid var(--text);
-    outline-offset: 5px;
-}
-
-/* =========================================
-   PROJEKTÜBERSICHT
-========================================= */
 
 .projects-page {
     min-height: 100vh;
@@ -1717,8 +838,6 @@ a {
     max-width: 1320px;
     margin: 0 auto;
 }
-
-/* Überschrift */
 
 .projects-header {
     margin-bottom: 75px;
@@ -1744,9 +863,12 @@ a {
 }
 
 
-/* =========================================
-   PROJEKTKACHELN
-========================================= */
+/* ==========================================================
+   16. PROJEKTKACHELN
+
+   Corporate Communication: gesamte Breite
+   Videografie und Fotografie: darunter nebeneinander
+========================================================== */
 
 .projects-grid {
     display: grid;
@@ -1754,30 +876,31 @@ a {
     gap: 22px;
 }
 
-/* Allgemeine Kachel */
-
 .project-tile {
     position: relative;
     display: block;
+
     min-height: 500px;
     overflow: hidden;
+
     border-radius: 14px;
     background-size: cover;
     background-position: center;
+
     color: white;
     isolation: isolate;
 }
 
-/* Erste Kachel über gesamte Breite */
+/* Erste Kachel über die gesamte Breite */
 
-.project-photo {
+.projects-grid > .project-tile:first-child {
     grid-column: 1 / -1;
-    min-height: 650px;
 }
 
 /* Hintergrundbilder */
 
 .project-photo {
+    min-height: 650px;
     background-image: url("assets/images/project-photo.jpg");
 }
 
@@ -1789,7 +912,7 @@ a {
     background-image: url("assets/images/project-corporate.jpg");
 }
 
-/* Dunkler Verlauf für bessere Lesbarkeit */
+/* Dunkler Verlauf */
 
 .project-tile::before {
     content: "";
@@ -1806,7 +929,7 @@ a {
     transition: background 0.3s ease;
 }
 
-/* Inhalt innerhalb der Kacheln */
+/* Kachelinhalt */
 
 .project-tile-content {
     position: absolute;
@@ -1817,7 +940,6 @@ a {
     flex-direction: column;
     justify-content: flex-end;
 }
-
 
 .project-category {
     font-size: 12px;
@@ -1841,23 +963,24 @@ a {
 /* Pfeil */
 
 .project-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
     width: 58px;
     height: 58px;
 
     border: 1px solid rgba(255, 255, 255, 0.8);
     border-radius: 50%;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
     font-size: 26px;
 
-    transition: transform 0.3s ease,
-                background 0.3s ease;
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease;
 }
 
-/* Hover-Effekt */
+/* Hover */
 
 .project-tile:hover .project-arrow {
     transform: rotate(45deg);
@@ -1869,18 +992,186 @@ a {
 }
 
 
-/* =========================================
-   RESPONSIVE DESIGN
-========================================= */
+/* ==========================================================
+   17. FOOTER AUF UNTERSEITEN
+========================================================== */
+
+.subpage-footer {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 25px 0 35px;
+
+    border-top: 1px solid rgba(32, 33, 36, 0.15);
+}
+
+.subpage-footer .footer-divider {
+    background: rgba(32, 33, 36, 0.2);
+}
+
+.subpage-back-to-top {
+    color: var(--text);
+    background: transparent;
+    border: 1px solid var(--border);
+}
+
+.subpage-back-to-top:hover {
+    background: rgba(32, 33, 36, 0.05);
+}
+
+
+/* ==========================================================
+   18. ANIMATIONEN – ÜBER MICH
+========================================================== */
+
+@keyframes gradientFlowTop {
+
+    0% {
+        transform: translate3d(0, 0, 0) rotate(-18deg);
+    }
+
+    50% {
+        transform: translate3d(-3%, 5%, 0) rotate(-14deg);
+    }
+
+    100% {
+        transform: translate3d(-6%, 9%, 0) rotate(-20deg);
+    }
+}
+
+@keyframes gradientFlowBottom {
+
+    0% {
+        transform: translate3d(0, 0, 0) rotate(15deg);
+    }
+
+    50% {
+        transform: translate3d(5%, -4%, 0) rotate(19deg);
+    }
+
+    100% {
+        transform: translate3d(8%, -7%, 0) rotate(12deg);
+    }
+}
+
+
+/* ==========================================================
+   19. TABLET – BIS 1100PX
+========================================================== */
+
+@media (max-width: 1100px) {
+
+    .skills-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .skill-card {
+        min-height: 245px;
+        padding: 24px;
+    }
+
+    .skill-card h3 {
+        font-size: 17px;
+    }
+}
+
+
+/* ==========================================================
+   20. TABLET – BIS 900PX
+========================================================== */
 
 @media (max-width: 900px) {
 
-    .projects-page {
-        padding-top: 150px;
+    /* HERO */
+
+    .hero-container {
+        padding: 160px 6% 90px;
     }
 
-    .project-photo {
-        min-height: 500px;
+    .hero h1 {
+        font-size: clamp(40px, 6vw, 62px);
+    }
+
+    .hero-overlay {
+        background: linear-gradient(
+            90deg,
+            rgba(242, 240, 237, 0.96),
+            rgba(242, 240, 237, 0.5)
+        );
+    }
+
+    .client-logos {
+        gap: 22px;
+        margin-top: 40px;
+    }
+
+    .client-logos img {
+        height: 26px;
+        max-width: 90px;
+    }
+
+    /* ÜBER MICH */
+
+    .about-intro {
+        gap: 45px;
+    }
+
+    .about-image img {
+        height: 500px;
+    }
+
+    .experience-grid,
+    .services-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .experience-section {
+        margin-top: 75px;
+    }
+
+    .services-section {
+        margin-top: 70px;
+    }
+
+    .experience-card {
+        min-height: 180px;
+    }
+
+    .service-card {
+        min-height: 90px;
+    }
+
+    /* HINTERGRUNDFLÄCHEN */
+
+    .about-section::before {
+        width: 150%;
+        height: 500px;
+        left: 0;
+    }
+
+    .about-section::after {
+        width: 160%;
+        height: 600px;
+        left: -50%;
+    }
+
+    /* KONTAKT */
+
+    .contact-container {
+        padding: 150px 6% 30px;
+    }
+
+    .contact-content h2 {
+        font-size: clamp(70px, 10vw, 110px);
+    }
+
+    .contact-content .section-label {
+        margin-bottom: 35px;
+    }
+
+    /* PROJEKTÜBERSICHT */
+
+    .projects-page {
+        padding-top: 150px;
     }
 
     .project-tile {
@@ -1891,10 +1182,345 @@ a {
         padding: 28px;
     }
 
+    /* FOOTER */
+
+    .subpage-footer {
+        margin: 0 6%;
+    }
 }
 
 
+/* ==========================================================
+   21. SMARTPHONE – BIS 600PX
+========================================================== */
+
 @media (max-width: 600px) {
+
+    /* NAVIGATION */
+
+    .site-header {
+        top: 12px;
+        padding: 0 12px;
+    }
+
+    .navbar {
+        gap: 20px;
+        padding: 10px 16px;
+    }
+
+    .logo-image {
+        width: 34px;
+        height: 34px;
+    }
+
+    .nav-links {
+        gap: 16px;
+    }
+
+    .nav-links a {
+        font-size: 11px;
+    }
+
+    /* HERO */
+
+    .hero {
+        background-position: 70% top;
+        align-items: flex-end;
+    }
+
+    .hero-overlay {
+        background: linear-gradient(
+            to bottom,
+            rgba(242, 240, 237, 0.05) 0%,
+            rgba(242, 240, 237, 0.15) 25%,
+            rgba(242, 240, 237, 0.85) 45%,
+            rgba(242, 240, 237, 0.98) 65%,
+            rgba(242, 240, 237, 1) 100%
+        );
+    }
+
+    .hero-container {
+        padding: 380px 24px 60px;
+    }
+
+    .eyebrow {
+        font-size: 11px;
+        letter-spacing: 1.5px;
+        margin-bottom: 24px;
+    }
+
+    .hero h1 {
+        font-size: clamp(34px, 8vw, 48px);
+        margin-bottom: 28px;
+    }
+
+    .hero-buttons {
+        gap: 12px;
+    }
+
+    .btn {
+        padding: 13px 20px;
+        font-size: 13px;
+    }
+
+    .client-logos {
+        gap: 20px;
+        margin-top: 35px;
+        justify-content: flex-start;
+    }
+
+    .client-logos img {
+        height: 24px;
+        max-width: 80px;
+    }
+
+    /* ÜBER MICH */
+
+    .about-section {
+        padding: 90px 24px;
+
+        background:
+            radial-gradient(
+                ellipse at 85% 20%,
+                rgba(202, 216, 228, 0.55),
+                transparent 55%
+            ),
+            radial-gradient(
+                ellipse at 10% 75%,
+                rgba(186, 204, 222, 0.6),
+                transparent 55%
+            ),
+            linear-gradient(
+                160deg,
+                #f2f0ed,
+                #e4e9ed,
+                #f2f0ed
+            );
+    }
+
+    .about-intro {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .about-image img {
+        height: 420px;
+    }
+
+    .about-text h2,
+    .experience-section h2,
+    .services-section h2 {
+        font-size: 36px;
+    }
+
+    /* ERFAHRUNG */
+
+    .experience-section,
+    .services-section {
+        margin-top: 65px;
+    }
+
+    .experience-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .experience-card {
+        min-height: auto;
+        padding: 22px;
+    }
+
+    .card-number {
+        margin-bottom: 14px;
+    }
+
+    .experience-card h3 {
+        font-size: 19px;
+    }
+
+    /* ANGEBOT */
+
+    .services-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+
+    .service-card {
+        min-height: 110px;
+        padding: 14px;
+
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 12px;
+    }
+
+    .service-icon {
+        width: 26px;
+        height: 26px;
+    }
+
+    .service-card h3 {
+        font-size: 13px;
+        line-height: 1.3;
+        overflow-wrap: anywhere;
+    }
+
+    /* HINTERGRUNDANIMATION */
+
+    .about-section::before {
+        width: 180%;
+        height: 350px;
+        top: 25%;
+        left: -30%;
+    }
+
+    .about-section::after {
+        width: 180%;
+        height: 450px;
+        bottom: 10%;
+        left: -60%;
+    }
+
+    /* GLASKACHELN */
+
+    .experience-card,
+    .service-card,
+    .skill-card {
+        background: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+    }
+
+    /* SKILLS */
+
+    .skills-section {
+        margin-top: 70px;
+    }
+
+    .skills-section h2 {
+        font-size: 36px;
+    }
+
+    .skills-intro {
+        font-size: 15px;
+        line-height: 1.6;
+        margin-bottom: 28px;
+    }
+
+    .skills-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+    }
+
+    .skill-card {
+        min-height: 235px;
+        padding: 18px 14px;
+        border-radius: 12px;
+    }
+
+    .skill-logo {
+        width: 46px;
+        height: 46px;
+        margin-bottom: 18px;
+    }
+
+    .skill-card h3 {
+        font-size: 14px;
+        margin-bottom: 10px;
+    }
+
+    .skill-card p {
+        font-size: 12px;
+        line-height: 1.6;
+    }
+
+    /* KONTAKT */
+
+    .contact-section {
+        background-position: 65% center;
+    }
+
+    .contact-overlay {
+        background: linear-gradient(
+            to bottom,
+            rgba(242, 240, 237, 0.85) 0%,
+            rgba(242, 240, 237, 0.5) 50%,
+            rgba(0, 0, 0, 0.15) 100%
+        );
+    }
+
+    .contact-container {
+        padding: 130px 24px 25px;
+    }
+
+    .contact-content .section-label {
+        margin-bottom: 30px;
+    }
+
+    .contact-content h2 {
+        font-size: clamp(54px, 13vw, 78px);
+        margin-bottom: 24px;
+    }
+
+    .contact-description {
+        font-size: 21px;
+    }
+
+    .contact-buttons {
+        margin-top: 40px;
+        gap: 12px;
+    }
+
+    .contact-btn {
+        min-height: 55px;
+    }
+
+    .contact-email {
+        padding: 0 20px;
+        font-size: 14px;
+    }
+
+    .contact-social {
+        width: 55px;
+        height: 55px;
+    }
+
+    .contact-social svg {
+        width: 24px;
+        height: 24px;
+    }
+
+    /* FOOTER */
+
+    .site-footer {
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .footer-left {
+        gap: 12px;
+    }
+
+    .footer-logo img {
+        width: 30px;
+        height: 30px;
+    }
+
+    .footer-divider {
+        height: 28px;
+    }
+
+    .footer-left p {
+        font-size: 11px;
+    }
+
+    .back-to-top {
+        padding: 12px 16px;
+        font-size: 12px;
+        white-space: nowrap;
+    }
+
+    /* PROJEKTÜBERSICHT */
 
     .projects-page {
         padding: 130px 24px 80px;
@@ -1917,7 +1543,7 @@ a {
         gap: 15px;
     }
 
-    .project-photo {
+    .projects-grid > .project-tile:first-child {
         grid-column: auto;
     }
 
@@ -1941,309 +1567,15 @@ a {
         flex-shrink: 0;
     }
 
-}
-/* =========================================
-   FOOTER AUF UNTERSEITEN
-========================================= */
-
-/* Footer mit unserem gewohnten Hintergrund */
-
-.subpage-footer {
-    max-width: 1320px;
-    margin: 0 auto;
-
-    padding: 25px 0 35px;
-
-    border-top: 1px solid rgba(32, 33, 36, 0.15);
-}
-
-/* Trennlinie zwischen Logo und Copyright */
-
-.subpage-footer .footer-divider {
-    background: rgba(32, 33, 36, 0.2);
-}
-
-/* Button "Nach oben" */
-
-.subpage-back-to-top {
-    color: var(--text);
-
-    background: transparent;
-
-    border: 1px solid var(--border);
-}
-
-.subpage-back-to-top:hover {
-    background: rgba(32, 33, 36, 0.05);
-}
-
-
-/* =========================================
-   RESPONSIVE FOOTER
-========================================= */
-
-@media (max-width: 900px) {
-
-    .subpage-footer {
-        margin: 0 6%;
-    }
-
-}
-
-@media (max-width: 600px) {
-
     .subpage-footer {
         margin: 0 24px;
         padding: 20px 0 30px;
     }
-
-}
-
-/* ==========================================================
-   40. MEINE SKILLS
-
-   Neuer Abschnitt unter "Mein Angebot".
-
-   Design:
-   - Sechs Kacheln auf grossen Bildschirmen
-   - Warme, neutrale Hintergrundfarben
-   - Farbige Original-Logos
-   - Einheitliche Typografie
-   - Responsive Darstellung
-========================================================== */
-
-
-/* ==========================================================
-   SKILLS – GRUNDLAYOUT
-========================================================== */
-
-.skills-section {
-
-    /* Abstand zum vorherigen Angebotsbereich */
-    margin-top: 95px;
-}
-
-/* Kleine Abschnittsbezeichnung */
-.skills-section .section-label {
-    margin-bottom: 14px;
-}
-
-/* Überschrift im Stil der anderen Abschnitte */
-.skills-section h2 {
-    font-size: clamp(30px, 3vw, 44px);
-    font-weight: 700;
-    line-height: 1.1;
-    letter-spacing: -0.05em;
-
-    margin-bottom: 20px;
-}
-
-/* Kurzer Einleitungstext */
-.skills-intro {
-    max-width: 650px;
-
-    font-size: 16px;
-    line-height: 1.7;
-
-    color: var(--muted);
-
-    margin-bottom: 38px;
 }
 
 
 /* ==========================================================
-   SKILLS – KACHELRASTER
-========================================================== */
-
-.skills-grid {
-
-    display: grid;
-
-    /* Sechs gleich breite Spalten */
-    grid-template-columns: repeat(6, minmax(0, 1fr));
-
-    /* Abstand zwischen den Kacheln */
-    gap: 14px;
-
-    /* Alle Kacheln gleich hoch */
-    align-items: stretch;
-}
-
-
-/* ==========================================================
-   SKILLS – EINZELNE KACHELN
-========================================================== */
-
-.skill-card {
-
-    /* Warmer, leicht abgesetzter Hintergrund */
-    background: #eae7e2;
-
-    /* Dezente Kontur */
-    border: 1px solid rgba(32, 33, 36, 0.04);
-
-    /* Abgerundete Ecken */
-    border-radius: 16px;
-
-    /* Innenabstände */
-    padding: 24px 18px;
-
-    /* Mindesthöhe */
-    min-height: 275px;
-
-    /* Inhalte untereinander */
-    display: flex;
-    flex-direction: column;
-
-    /* Text linksbündig */
-    align-items: flex-start;
-
-    /* Verhindert Überlaufen in schmalen Kacheln */
-    min-width: 0;
-}
-
-
-/* ==========================================================
-   SKILLS – LOGOS
-========================================================== */
-
-.skill-logo {
-
-    /* Einheitliche Logogrösse */
-    width: 58px;
-    height: 58px;
-
-    /* Seitenverhältnis beibehalten */
-    object-fit: contain;
-
-    /* Logo nicht verzerren */
-    flex-shrink: 0;
-
-    /* Abstand zum Titel */
-    margin-bottom: 22px;
-}
-
-
-/* ==========================================================
-   SKILLS – BESCHRIFTUNGEN
-========================================================== */
-
-/* Titel der jeweiligen Kachel */
-.skill-card h3 {
-
-    font-size: 16px;
-    font-weight: 700;
-
-    line-height: 1.25;
-    letter-spacing: -0.025em;
-
-    /* Abstand zur Programmliste */
-    margin-bottom: 14px;
-
-    /* Lange Wörter dürfen umbrechen */
-    overflow-wrap: anywhere;
-}
-
-/* Liste der Programme */
-.skill-card p {
-
-    font-size: 14px;
-    line-height: 1.65;
-
-    color: var(--muted);
-
-    overflow-wrap: anywhere;
-}
-
-
-/* ==========================================================
-   41. SKILLS – TABLET
-
-   Drei Kacheln pro Zeile.
-========================================================== */
-
-@media (max-width: 1100px) {
-
-    .skills-grid {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-
-    .skill-card {
-        min-height: 245px;
-        padding: 24px;
-    }
-
-    .skill-card h3 {
-        font-size: 17px;
-    }
-
-}
-
-
-/* ==========================================================
-   42. SKILLS – SMARTPHONE
-
-   Zwei Kacheln pro Zeile.
-========================================================== */
-
-@media (max-width: 600px) {
-
-    .skills-section {
-        margin-top: 70px;
-    }
-
-    .skills-section h2 {
-        font-size: 36px;
-    }
-
-    .skills-intro {
-        font-size: 15px;
-        line-height: 1.6;
-        margin-bottom: 28px;
-    }
-
-    .skills-grid {
-
-        /* Zwei Spalten */
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-
-        gap: 10px;
-    }
-
-    .skill-card {
-
-        /* Kompaktere Kacheln */
-        min-height: 235px;
-
-        padding: 18px 14px;
-
-        border-radius: 12px;
-    }
-
-    .skill-logo {
-        width: 46px;
-        height: 46px;
-
-        margin-bottom: 18px;
-    }
-
-    .skill-card h3 {
-        font-size: 14px;
-        margin-bottom: 10px;
-    }
-
-    .skill-card p {
-        font-size: 12px;
-        line-height: 1.6;
-    }
-
-}
-
-
-/* ==========================================================
-   43. SKILLS – SEHR KLEINE SMARTPHONES
-
-   Eine Spalte für besonders schmale Displays.
+   22. SEHR KLEINE SMARTPHONES – BIS 360PX
 ========================================================== */
 
 @media (max-width: 360px) {
@@ -2269,393 +1601,34 @@ a {
     .skill-card p {
         font-size: 14px;
     }
-
-}
-
-/* ==========================================================
-   ÜBER MICH – PREMIUM GRADIENT DESIGN
-
-   Design:
-   - Dezenter Creme- und Silbergrau-Verlauf
-   - Geschwungene Farbflächen
-   - Transparente Glaskacheln
-   - Einheitlicher Look für Erfahrung, Angebot und Skills
-
-   Betrifft ausschliesslich die Startseite.
-========================================================== */
-
-
-/* ==========================================================
-   1. HINTERGRUND MIT FARBVERLAUF
-========================================================== */
-
-.about-section {
-    position: relative;
-
-    /* Mehrere sanfte Farbverläufe erzeugen Tiefe */
-    background:
-        radial-gradient(
-            ellipse at 85% 15%,
-            rgba(202, 216, 228, 0.65) 0%,
-            transparent 48%
-        ),
-
-        radial-gradient(
-            ellipse at 5% 75%,
-            rgba(186, 204, 222, 0.7) 0%,
-            transparent 50%
-        ),
-
-        radial-gradient(
-            ellipse at 65% 90%,
-            rgba(218, 224, 230, 0.55) 0%,
-            transparent 45%
-        ),
-
-        linear-gradient(
-            135deg,
-            #f2f0ed 0%,
-            #e9e9e8 40%,
-            #e0e6ec 75%,
-            #f2f0ed 100%
-        );
-
-    /* Farbflächen bleiben innerhalb des Bereichs */
-    overflow: hidden;
-
-    /* Eigener Stapelkontext */
-    isolation: isolate;
 }
 
 
 /* ==========================================================
-   2. GESCHWUNGENE HINTERGRUNDFLÄCHEN
+   23. BARRIEREFREIHEIT
 
-   Die Pseudoelemente erzeugen grosse,
-   weiche Formen hinter den Inhalten.
-========================================================== */
-
-.about-section::before,
-.about-section::after {
-    content: "";
-
-    position: absolute;
-
-    /* Farbflächen liegen hinter dem Inhalt */
-    z-index: -1;
-
-    pointer-events: none;
-}
-
-
-/* Obere geschwungene Fläche */
-
-.about-section::before {
-    width: 120%;
-    height: 650px;
-
-    top: 18%;
-    left: 15%;
-
-    background: linear-gradient(
-        135deg,
-        rgba(255, 255, 255, 0.35),
-        rgba(195, 211, 225, 0.3)
-    );
-
-    border-radius: 50%;
-
-    transform: rotate(-18deg);
-
-    filter: blur(3px);
-}
-
-
-/* Untere geschwungene Fläche */
-
-.about-section::after {
-    width: 130%;
-    height: 750px;
-
-    bottom: 5%;
-    left: -35%;
-
-    background: linear-gradient(
-        135deg,
-        rgba(178, 199, 219, 0.3),
-        rgba(255, 255, 255, 0.25)
-    );
-
-    border-radius: 50%;
-
-    transform: rotate(15deg);
-
-    filter: blur(4px);
-}
-
-
-/* ==========================================================
-   3. INHALTE ÜBER DEM HINTERGRUND
-========================================================== */
-
-.about-container {
-    position: relative;
-    z-index: 1;
-}
-
-
-/* ==========================================================
-   4. TRANSPARENTE ERFAHRUNGSKACHELN
-========================================================== */
-
-.experience-card {
-
-    /* Halbtransparenter Hintergrund */
-    background: rgba(255, 255, 255, 0.18);
-
-    /* Glas-Effekt */
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-
-    /* Feine weisse Kontur */
-    border: 1px solid rgba(255, 255, 255, 0.7);
-
-    /* Sehr dezenter Schatten */
-    box-shadow:
-        0 8px 30px rgba(35, 45, 55, 0.035);
-
-    border-radius: 16px;
-}
-
-
-/* ==========================================================
-   5. TRANSPARENTE ANGEBOTSKACHELN
-========================================================== */
-
-.service-card {
-
-    background: rgba(255, 255, 255, 0.16);
-
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-
-    border: 1px solid rgba(255, 255, 255, 0.7);
-
-    box-shadow:
-        0 8px 30px rgba(35, 45, 55, 0.025);
-
-    border-radius: 16px;
-}
-
-
-/* ==========================================================
-   6. TRANSPARENTE SKILLS-KACHELN
-========================================================== */
-
-.skill-card {
-
-    background: rgba(255, 255, 255, 0.18);
-
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-
-    border: 1px solid rgba(255, 255, 255, 0.7);
-
-    box-shadow:
-        0 8px 30px rgba(35, 45, 55, 0.035);
-
-    border-radius: 16px;
-}
-
-
-/* ==========================================================
-   7. TABLET-OPTIMIERUNG
-========================================================== */
-
-@media (max-width: 900px) {
-
-    .about-section::before {
-        width: 150%;
-        height: 500px;
-
-        left: 0;
-    }
-
-    .about-section::after {
-        width: 160%;
-        height: 600px;
-
-        left: -50%;
-    }
-
-}
-
-
-/* ==========================================================
-   8. SMARTPHONE-OPTIMIERUNG
-========================================================== */
-
-@media (max-width: 600px) {
-
-    /* Farbverlauf für schmale Displays optimieren */
-    .about-section {
-        background:
-            radial-gradient(
-                ellipse at 85% 20%,
-                rgba(202, 216, 228, 0.55),
-                transparent 55%
-            ),
-
-            radial-gradient(
-                ellipse at 10% 75%,
-                rgba(186, 204, 222, 0.6),
-                transparent 55%
-            ),
-
-            linear-gradient(
-                160deg,
-                #f2f0ed,
-                #e4e9ed,
-                #f2f0ed
-            );
-    }
-
-    /* Geschwungene Flächen etwas reduzieren */
-    .about-section::before {
-        width: 180%;
-        height: 350px;
-
-        top: 25%;
-        left: -30%;
-    }
-
-    .about-section::after {
-        width: 180%;
-        height: 450px;
-
-        bottom: 10%;
-        left: -60%;
-    }
-
-    /* Glaskacheln bleiben auch mobil transparent */
-    .experience-card,
-    .service-card,
-    .skill-card {
-        background: rgba(255, 255, 255, 0.2);
-
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
-    }
-
-}
-
-/* ==========================================================
-   ANIMIERTER FARBVERLAUF – ÜBER MICH
-
-   - Langsame, organische Bewegung
-   - Unterschiedliche Bewegungsrichtungen
-   - Dezenter und hochwertiger Effekt
-   - Keine zusätzlichen JavaScript-Funktionen
-========================================================== */
-
-
-/* ==========================================================
-   1. OBERE FARBFLÄCHE ANIMIEREN
-========================================================== */
-
-.about-section::before {
-
-    /* Langsame Bewegung über 35 Sekunden */
-    animation: gradientFlowTop 35s ease-in-out infinite alternate;
-
-    /* Optimierung für flüssige Animation */
-    will-change: transform;
-}
-
-
-/* ==========================================================
-   2. UNTERE FARBFLÄCHE ANIMIEREN
-========================================================== */
-
-.about-section::after {
-
-    /* Etwas langsamere Bewegung über 45 Sekunden */
-    animation: gradientFlowBottom 45s ease-in-out infinite alternate;
-
-    /* Optimierung für flüssige Animation */
-    will-change: transform;
-}
-
-
-/* ==========================================================
-   3. BEWEGUNG DER OBEREN FARBFLÄCHE
-========================================================== */
-
-@keyframes gradientFlowTop {
-
-    0% {
-        transform:
-            translate3d(0, 0, 0)
-            rotate(-18deg);
-    }
-
-    50% {
-        transform:
-            translate3d(-3%, 5%, 0)
-            rotate(-14deg);
-    }
-
-    100% {
-        transform:
-            translate3d(-6%, 9%, 0)
-            rotate(-20deg);
-    }
-
-}
-
-
-/* ==========================================================
-   4. BEWEGUNG DER UNTEREN FARBFLÄCHE
-========================================================== */
-
-@keyframes gradientFlowBottom {
-
-    0% {
-        transform:
-            translate3d(0, 0, 0)
-            rotate(15deg);
-    }
-
-    50% {
-        transform:
-            translate3d(5%, -4%, 0)
-            rotate(19deg);
-    }
-
-    100% {
-        transform:
-            translate3d(8%, -7%, 0)
-            rotate(12deg);
-    }
-
-}
-
-
-/* ==========================================================
-   5. BARRIEREFREIHEIT
-
-   Animationen deaktivieren, wenn im Betriebssystem
-   reduzierte Bewegungen eingestellt sind.
+   Reduzierte Animationen bei entsprechender
+   Systemeinstellung.
 ========================================================== */
 
 @media (prefers-reduced-motion: reduce) {
 
-    .about-section::before,
-    .about-section::after {
-
-        animation: none;
-        will-change: auto;
-
+    html {
+        scroll-behavior: auto;
     }
 
+    .btn,
+    .nav-links a,
+    .logo-image,
+    .contact-btn,
+    .footer-logo img,
+    .back-to-top {
+        transition: none;
+    }
+
+    .about-section::before,
+    .about-section::after {
+        animation: none;
+        will-change: auto;
+    }
 }
