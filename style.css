@@ -2271,3 +2271,391 @@ a {
     }
 
 }
+
+/* ==========================================================
+   ÜBER MICH – PREMIUM GRADIENT DESIGN
+
+   Design:
+   - Dezenter Creme- und Silbergrau-Verlauf
+   - Geschwungene Farbflächen
+   - Transparente Glaskacheln
+   - Einheitlicher Look für Erfahrung, Angebot und Skills
+
+   Betrifft ausschliesslich die Startseite.
+========================================================== */
+
+
+/* ==========================================================
+   1. HINTERGRUND MIT FARBVERLAUF
+========================================================== */
+
+.about-section {
+    position: relative;
+
+    /* Mehrere sanfte Farbverläufe erzeugen Tiefe */
+    background:
+        radial-gradient(
+            ellipse at 85% 15%,
+            rgba(202, 216, 228, 0.65) 0%,
+            transparent 48%
+        ),
+
+        radial-gradient(
+            ellipse at 5% 75%,
+            rgba(186, 204, 222, 0.7) 0%,
+            transparent 50%
+        ),
+
+        radial-gradient(
+            ellipse at 65% 90%,
+            rgba(218, 224, 230, 0.55) 0%,
+            transparent 45%
+        ),
+
+        linear-gradient(
+            135deg,
+            #f2f0ed 0%,
+            #e9e9e8 40%,
+            #e0e6ec 75%,
+            #f2f0ed 100%
+        );
+
+    /* Farbflächen bleiben innerhalb des Bereichs */
+    overflow: hidden;
+
+    /* Eigener Stapelkontext */
+    isolation: isolate;
+}
+
+
+/* ==========================================================
+   2. GESCHWUNGENE HINTERGRUNDFLÄCHEN
+
+   Die Pseudoelemente erzeugen grosse,
+   weiche Formen hinter den Inhalten.
+========================================================== */
+
+.about-section::before,
+.about-section::after {
+    content: "";
+
+    position: absolute;
+
+    /* Farbflächen liegen hinter dem Inhalt */
+    z-index: -1;
+
+    pointer-events: none;
+}
+
+
+/* Obere geschwungene Fläche */
+
+.about-section::before {
+    width: 120%;
+    height: 650px;
+
+    top: 18%;
+    left: 15%;
+
+    background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.35),
+        rgba(195, 211, 225, 0.3)
+    );
+
+    border-radius: 50%;
+
+    transform: rotate(-18deg);
+
+    filter: blur(3px);
+}
+
+
+/* Untere geschwungene Fläche */
+
+.about-section::after {
+    width: 130%;
+    height: 750px;
+
+    bottom: 5%;
+    left: -35%;
+
+    background: linear-gradient(
+        135deg,
+        rgba(178, 199, 219, 0.3),
+        rgba(255, 255, 255, 0.25)
+    );
+
+    border-radius: 50%;
+
+    transform: rotate(15deg);
+
+    filter: blur(4px);
+}
+
+
+/* ==========================================================
+   3. INHALTE ÜBER DEM HINTERGRUND
+========================================================== */
+
+.about-container {
+    position: relative;
+    z-index: 1;
+}
+
+
+/* ==========================================================
+   4. TRANSPARENTE ERFAHRUNGSKACHELN
+========================================================== */
+
+.experience-card {
+
+    /* Halbtransparenter Hintergrund */
+    background: rgba(255, 255, 255, 0.18);
+
+    /* Glas-Effekt */
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
+    /* Feine weisse Kontur */
+    border: 1px solid rgba(255, 255, 255, 0.7);
+
+    /* Sehr dezenter Schatten */
+    box-shadow:
+        0 8px 30px rgba(35, 45, 55, 0.035);
+
+    border-radius: 16px;
+}
+
+
+/* ==========================================================
+   5. TRANSPARENTE ANGEBOTSKACHELN
+========================================================== */
+
+.service-card {
+
+    background: rgba(255, 255, 255, 0.16);
+
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
+    border: 1px solid rgba(255, 255, 255, 0.7);
+
+    box-shadow:
+        0 8px 30px rgba(35, 45, 55, 0.025);
+
+    border-radius: 16px;
+}
+
+
+/* ==========================================================
+   6. TRANSPARENTE SKILLS-KACHELN
+========================================================== */
+
+.skill-card {
+
+    background: rgba(255, 255, 255, 0.18);
+
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
+    border: 1px solid rgba(255, 255, 255, 0.7);
+
+    box-shadow:
+        0 8px 30px rgba(35, 45, 55, 0.035);
+
+    border-radius: 16px;
+}
+
+
+/* ==========================================================
+   7. TABLET-OPTIMIERUNG
+========================================================== */
+
+@media (max-width: 900px) {
+
+    .about-section::before {
+        width: 150%;
+        height: 500px;
+
+        left: 0;
+    }
+
+    .about-section::after {
+        width: 160%;
+        height: 600px;
+
+        left: -50%;
+    }
+
+}
+
+
+/* ==========================================================
+   8. SMARTPHONE-OPTIMIERUNG
+========================================================== */
+
+@media (max-width: 600px) {
+
+    /* Farbverlauf für schmale Displays optimieren */
+    .about-section {
+        background:
+            radial-gradient(
+                ellipse at 85% 20%,
+                rgba(202, 216, 228, 0.55),
+                transparent 55%
+            ),
+
+            radial-gradient(
+                ellipse at 10% 75%,
+                rgba(186, 204, 222, 0.6),
+                transparent 55%
+            ),
+
+            linear-gradient(
+                160deg,
+                #f2f0ed,
+                #e4e9ed,
+                #f2f0ed
+            );
+    }
+
+    /* Geschwungene Flächen etwas reduzieren */
+    .about-section::before {
+        width: 180%;
+        height: 350px;
+
+        top: 25%;
+        left: -30%;
+    }
+
+    .about-section::after {
+        width: 180%;
+        height: 450px;
+
+        bottom: 10%;
+        left: -60%;
+    }
+
+    /* Glaskacheln bleiben auch mobil transparent */
+    .experience-card,
+    .service-card,
+    .skill-card {
+        background: rgba(255, 255, 255, 0.2);
+
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+    }
+
+}
+
+/* ==========================================================
+   ANIMIERTER FARBVERLAUF – ÜBER MICH
+
+   - Langsame, organische Bewegung
+   - Unterschiedliche Bewegungsrichtungen
+   - Dezenter und hochwertiger Effekt
+   - Keine zusätzlichen JavaScript-Funktionen
+========================================================== */
+
+
+/* ==========================================================
+   1. OBERE FARBFLÄCHE ANIMIEREN
+========================================================== */
+
+.about-section::before {
+
+    /* Langsame Bewegung über 35 Sekunden */
+    animation: gradientFlowTop 35s ease-in-out infinite alternate;
+
+    /* Optimierung für flüssige Animation */
+    will-change: transform;
+}
+
+
+/* ==========================================================
+   2. UNTERE FARBFLÄCHE ANIMIEREN
+========================================================== */
+
+.about-section::after {
+
+    /* Etwas langsamere Bewegung über 45 Sekunden */
+    animation: gradientFlowBottom 45s ease-in-out infinite alternate;
+
+    /* Optimierung für flüssige Animation */
+    will-change: transform;
+}
+
+
+/* ==========================================================
+   3. BEWEGUNG DER OBEREN FARBFLÄCHE
+========================================================== */
+
+@keyframes gradientFlowTop {
+
+    0% {
+        transform:
+            translate3d(0, 0, 0)
+            rotate(-18deg);
+    }
+
+    50% {
+        transform:
+            translate3d(-3%, 5%, 0)
+            rotate(-14deg);
+    }
+
+    100% {
+        transform:
+            translate3d(-6%, 9%, 0)
+            rotate(-20deg);
+    }
+
+}
+
+
+/* ==========================================================
+   4. BEWEGUNG DER UNTEREN FARBFLÄCHE
+========================================================== */
+
+@keyframes gradientFlowBottom {
+
+    0% {
+        transform:
+            translate3d(0, 0, 0)
+            rotate(15deg);
+    }
+
+    50% {
+        transform:
+            translate3d(5%, -4%, 0)
+            rotate(19deg);
+    }
+
+    100% {
+        transform:
+            translate3d(8%, -7%, 0)
+            rotate(12deg);
+    }
+
+}
+
+
+/* ==========================================================
+   5. BARRIEREFREIHEIT
+
+   Animationen deaktivieren, wenn im Betriebssystem
+   reduzierte Bewegungen eingestellt sind.
+========================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .about-section::before,
+    .about-section::after {
+
+        animation: none;
+        will-change: auto;
+
+    }
+
+}
