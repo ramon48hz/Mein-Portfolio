@@ -1998,3 +1998,276 @@ a {
     }
 
 }
+
+/* ==========================================================
+   40. MEINE SKILLS
+
+   Neuer Abschnitt unter "Mein Angebot".
+
+   Design:
+   - Sechs Kacheln auf grossen Bildschirmen
+   - Warme, neutrale Hintergrundfarben
+   - Farbige Original-Logos
+   - Einheitliche Typografie
+   - Responsive Darstellung
+========================================================== */
+
+
+/* ==========================================================
+   SKILLS – GRUNDLAYOUT
+========================================================== */
+
+.skills-section {
+
+    /* Abstand zum vorherigen Angebotsbereich */
+    margin-top: 95px;
+}
+
+/* Kleine Abschnittsbezeichnung */
+.skills-section .section-label {
+    margin-bottom: 14px;
+}
+
+/* Überschrift im Stil der anderen Abschnitte */
+.skills-section h2 {
+    font-size: clamp(30px, 3vw, 44px);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.05em;
+
+    margin-bottom: 20px;
+}
+
+/* Kurzer Einleitungstext */
+.skills-intro {
+    max-width: 650px;
+
+    font-size: 16px;
+    line-height: 1.7;
+
+    color: var(--muted);
+
+    margin-bottom: 38px;
+}
+
+
+/* ==========================================================
+   SKILLS – KACHELRASTER
+========================================================== */
+
+.skills-grid {
+
+    display: grid;
+
+    /* Sechs gleich breite Spalten */
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+
+    /* Abstand zwischen den Kacheln */
+    gap: 14px;
+
+    /* Alle Kacheln gleich hoch */
+    align-items: stretch;
+}
+
+
+/* ==========================================================
+   SKILLS – EINZELNE KACHELN
+========================================================== */
+
+.skill-card {
+
+    /* Warmer, leicht abgesetzter Hintergrund */
+    background: #eae7e2;
+
+    /* Dezente Kontur */
+    border: 1px solid rgba(32, 33, 36, 0.04);
+
+    /* Abgerundete Ecken */
+    border-radius: 16px;
+
+    /* Innenabstände */
+    padding: 24px 18px;
+
+    /* Mindesthöhe */
+    min-height: 275px;
+
+    /* Inhalte untereinander */
+    display: flex;
+    flex-direction: column;
+
+    /* Text linksbündig */
+    align-items: flex-start;
+
+    /* Verhindert Überlaufen in schmalen Kacheln */
+    min-width: 0;
+}
+
+
+/* ==========================================================
+   SKILLS – LOGOS
+========================================================== */
+
+.skill-logo {
+
+    /* Einheitliche Logogrösse */
+    width: 58px;
+    height: 58px;
+
+    /* Seitenverhältnis beibehalten */
+    object-fit: contain;
+
+    /* Logo nicht verzerren */
+    flex-shrink: 0;
+
+    /* Abstand zum Titel */
+    margin-bottom: 22px;
+}
+
+
+/* ==========================================================
+   SKILLS – BESCHRIFTUNGEN
+========================================================== */
+
+/* Titel der jeweiligen Kachel */
+.skill-card h3 {
+
+    font-size: 16px;
+    font-weight: 700;
+
+    line-height: 1.25;
+    letter-spacing: -0.025em;
+
+    /* Abstand zur Programmliste */
+    margin-bottom: 14px;
+
+    /* Lange Wörter dürfen umbrechen */
+    overflow-wrap: anywhere;
+}
+
+/* Liste der Programme */
+.skill-card p {
+
+    font-size: 14px;
+    line-height: 1.65;
+
+    color: var(--muted);
+
+    overflow-wrap: anywhere;
+}
+
+
+/* ==========================================================
+   41. SKILLS – TABLET
+
+   Drei Kacheln pro Zeile.
+========================================================== */
+
+@media (max-width: 1100px) {
+
+    .skills-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .skill-card {
+        min-height: 245px;
+        padding: 24px;
+    }
+
+    .skill-card h3 {
+        font-size: 17px;
+    }
+
+}
+
+
+/* ==========================================================
+   42. SKILLS – SMARTPHONE
+
+   Zwei Kacheln pro Zeile.
+========================================================== */
+
+@media (max-width: 600px) {
+
+    .skills-section {
+        margin-top: 70px;
+    }
+
+    .skills-section h2 {
+        font-size: 36px;
+    }
+
+    .skills-intro {
+        font-size: 15px;
+        line-height: 1.6;
+        margin-bottom: 28px;
+    }
+
+    .skills-grid {
+
+        /* Zwei Spalten */
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+
+        gap: 10px;
+    }
+
+    .skill-card {
+
+        /* Kompaktere Kacheln */
+        min-height: 235px;
+
+        padding: 18px 14px;
+
+        border-radius: 12px;
+    }
+
+    .skill-logo {
+        width: 46px;
+        height: 46px;
+
+        margin-bottom: 18px;
+    }
+
+    .skill-card h3 {
+        font-size: 14px;
+        margin-bottom: 10px;
+    }
+
+    .skill-card p {
+        font-size: 12px;
+        line-height: 1.6;
+    }
+
+}
+
+
+/* ==========================================================
+   43. SKILLS – SEHR KLEINE SMARTPHONES
+
+   Eine Spalte für besonders schmale Displays.
+========================================================== */
+
+@media (max-width: 360px) {
+
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .skill-card {
+        min-height: auto;
+        padding: 22px;
+    }
+
+    .skill-logo {
+        width: 54px;
+        height: 54px;
+    }
+
+    .skill-card h3 {
+        font-size: 17px;
+    }
+
+    .skill-card p {
+        font-size: 14px;
+    }
+
+}
