@@ -2113,3 +2113,152 @@ a {
 .video-hero {
     background-image: url("assets/images/video-hero.jpg");
 }
+
+/* ==========================================================
+   PROJEKTÜBERSICHT – DREI GLEICHWERTIGE KACHELN
+========================================================== */
+
+/* Drei gleich grosse Spalten */
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+}
+
+/* Alle Projektkacheln gleich gross */
+
+.projects-grid .project-tile {
+    grid-column: auto;
+    grid-row: auto;
+    min-width: 0;
+    min-height: 520px;
+}
+
+/* Corporate Communication nicht mehr hervorheben */
+
+.projects-grid .project-corporate {
+    grid-column: auto;
+    grid-row: auto;
+}
+
+/* ==========================================================
+   RESPONSIVE DARSTELLUNG
+========================================================== */
+
+/* Tablet: zwei Spalten */
+
+@media (max-width: 1000px) {
+
+    .projects-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .projects-grid .project-tile {
+        min-height: 420px;
+    }
+}
+
+/* Smartphone: eine Spalte */
+
+@media (max-width: 650px) {
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .projects-grid .project-tile {
+        min-height: 380px;
+    }
+}
+/* ==========================================================
+   PROJEKTÜBERSICHT – DREI GLEICHWERTIGE KACHELN
+========================================================== */
+
+/* Drei gleich breite Spalten */
+.project-grid,
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+}
+
+/* Alle drei Kacheln gleich behandeln */
+.project-grid > *,
+.projects-grid > * {
+    grid-column: auto !important;
+    grid-row: auto !important;
+
+    width: 100%;
+    min-width: 0;
+    height: 600px;
+    min-height: 0;
+}
+
+/* Bilder füllen die gesamte Kachel */
+.project-grid .project-tile img,
+.projects-grid .project-tile img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Tablet */
+@media (max-width: 1000px) {
+
+    .project-grid,
+    .projects-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .project-grid > *,
+    .projects-grid > * {
+        height: 480px;
+    }
+}
+
+/* Smartphone */
+@media (max-width: 650px) {
+
+    .project-grid,
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .project-grid > *,
+    .projects-grid > * {
+        height: 420px;
+    }
+}
+/* ==========================================================
+   PROJEKTÜBERSICHT – SCHRIFTGRÖSSEN OPTIMIEREN
+========================================================== */
+
+/* Titel aller drei Projektkacheln */
+
+.projects-grid .project-tile h2,
+.project-grid .project-tile h2 {
+    font-size: clamp(24px, 2.6vw, 40px);
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    overflow-wrap: break-word;
+}
+
+/* Tablet */
+
+@media (max-width: 1000px) {
+    .projects-grid .project-tile h2,
+    .project-grid .project-tile h2 {
+        font-size: 34px;
+    }
+}
+
+/* Smartphone */
+
+@media (max-width: 650px) {
+    .projects-grid .project-tile h2,
+    .project-grid .project-tile h2 {
+        font-size: 32px;
+    }
+}
