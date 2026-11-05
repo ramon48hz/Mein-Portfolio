@@ -2262,3 +2262,10 @@ a {
         font-size: 32px;
     }
 }
+/* ==========================================================
+   FOTOGRAFIE – HERO-HINTERGRUND
+========================================================== */
+
+.photo-hero {
+    background-image: url("assets/images/photo-hero.jpg");
+}
