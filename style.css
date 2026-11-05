@@ -2105,3 +2105,11 @@ a {
     }
 
 }
+
+/* ==========================================================
+   VIDEOGRAFIE – HERO-HINTERGRUND
+========================================================== */
+
+.video-hero {
+    background-image: url("assets/images/video-hero.jpg");
+}
