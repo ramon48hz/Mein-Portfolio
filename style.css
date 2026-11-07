@@ -4058,3 +4058,26 @@ a {
     }
 
 }
+
+/* ==========================================
+   PROJEKTNAVIGATION – MOBILE REIHENFOLGE
+   ========================================== */
+
+@media (max-width: 650px) {
+
+    /* Vorheriges Projekt – oben links */
+    .project-detail-navigation > a:nth-child(1) {
+        order: 1;
+    }
+
+    /* Nächstes Projekt – oben rechts */
+    .project-detail-navigation > a:nth-child(3) {
+        order: 2;
+    }
+
+    /* Projektübersicht – unten über volle Breite */
+    .project-detail-navigation > a:nth-child(2) {
+        order: 3;
+    }
+
+}
