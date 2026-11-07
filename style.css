@@ -3938,24 +3938,44 @@ a {
    VIDEOGRAFIE – EINHEITLICHE AUSRICHTUNG
    ========================================== */
 
-/* Filmbereich exakt am Hero-Container ausrichten */
-.project-detail .spaetify-film-section {
-    width: 100%;
-    max-width: none;
+/* ==========================================
+   PROJEKTNAVIGATION – MOBILE
+   Einheitliche Button-Positionen
+   ========================================== */
 
-    /* Gleiche horizontale Abstände wie beim Hero */
-    padding-left: max(24px, calc((100% - 1400px) / 2));
-    padding-right: max(24px, calc((100% - 1400px) / 2));
-
-    box-sizing: border-box;
-}
-
-/* Mobile Darstellung */
 @media (max-width: 650px) {
-    .project-detail .spaetify-film-section {
-        padding-left: 18px;
-        padding-right: 18px;
+
+    .project-detail-navigation {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
     }
+
+    /* Vorheriges Projekt – immer oben links */
+    .project-detail-navigation > :nth-child(1) {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    /* Projektübersicht – immer unten */
+    .project-detail-navigation > :nth-child(2) {
+        grid-column: 1 / -1;
+        grid-row: 2;
+    }
+
+    /* Nächstes Projekt – immer oben rechts */
+    .project-detail-navigation > :nth-child(3) {
+        grid-column: 2;
+        grid-row: 1;
+    }
+
+    .project-detail-navigation > * {
+        width: 100%;
+        box-sizing: border-box;
+        min-width: 0;
+        text-align: center;
+    }
+
 }
 
 /* ==========================================
