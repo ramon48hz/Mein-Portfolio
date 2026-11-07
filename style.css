@@ -3303,3 +3303,509 @@ a {
     }
 
 }
+/* ==========================================
+   PRINTDESIGN – GALERIE
+========================================== */
+
+
+/* Gesamter Galeriebereich */
+
+.print-gallery-section {
+
+    width: 88%;
+    max-width: 1400px;
+
+    margin: 0 auto;
+
+    padding-bottom: 110px;
+
+}
+
+
+/* Überschrift */
+
+.print-gallery-header {
+
+    margin-bottom: 35px;
+
+}
+
+.print-gallery-header h2 {
+
+    font-size: clamp(30px, 3vw, 44px);
+
+    font-weight: 700;
+
+    letter-spacing: -0.03em;
+
+    line-height: 1.1;
+
+    margin-top: 12px;
+
+}
+
+
+/* ==========================================
+   MASONRY-GALERIE
+========================================== */
+
+.print-gallery {
+
+    column-count: 3;
+
+    column-gap: 22px;
+
+}
+
+
+/* Einzelnes Bild */
+
+.print-gallery-item {
+
+    display: block;
+
+    width: 100%;
+
+    margin: 0 0 22px;
+
+    padding: 0;
+
+    border: none;
+
+    border-radius: 16px;
+
+    overflow: hidden;
+
+    background: transparent;
+
+    cursor: zoom-in;
+
+    break-inside: avoid;
+
+    -webkit-column-break-inside: avoid;
+
+}
+
+
+/* Bilddarstellung */
+
+.print-gallery-item img {
+
+    display: block;
+
+    width: 100%;
+
+    height: auto;
+
+    border-radius: 16px;
+
+    transition: transform 0.35s ease;
+
+}
+
+
+/* Dezenter Hover-Effekt */
+
+@media (hover: hover) {
+
+    .print-gallery-item:hover img {
+
+        transform: scale(1.025);
+
+    }
+
+}
+
+
+/* ==========================================
+   LIGHTBOX
+========================================== */
+
+.print-lightbox {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 9999;
+
+    display: none;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 70px 25px;
+
+    background: rgba(15, 15, 15, 0.92);
+
+    backdrop-filter: blur(12px);
+
+}
+
+
+/* Sichtbare Lightbox */
+
+.print-lightbox.is-open {
+
+    display: flex;
+
+}
+
+
+/* Vergrössertes Bild */
+
+.print-lightbox img {
+
+    display: block;
+
+    max-width: 95%;
+
+    max-height: 90vh;
+
+    width: auto;
+
+    height: auto;
+
+    object-fit: contain;
+
+    border-radius: 8px;
+
+}
+
+
+/* Schliessen-Button */
+
+.print-lightbox-close {
+
+    position: absolute;
+
+    top: 22px;
+
+    right: 30px;
+
+    width: 46px;
+
+    height: 46px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border: 1px solid rgba(255, 255, 255, 0.3);
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.1);
+
+    color: #fff;
+
+    font-size: 32px;
+
+    font-weight: 300;
+
+    cursor: pointer;
+
+    transition: background 0.2s ease;
+
+}
+
+.print-lightbox-close:hover {
+
+    background: rgba(255, 255, 255, 0.25);
+
+}
+
+
+/* ==========================================
+   RESPONSIVE – TABLET
+========================================== */
+
+@media (max-width: 1000px) {
+
+    .print-gallery {
+
+        column-count: 2;
+
+        column-gap: 18px;
+
+    }
+
+    .print-gallery-item {
+
+        margin-bottom: 18px;
+
+    }
+
+}
+
+
+/* ==========================================
+   RESPONSIVE – SMARTPHONE
+========================================== */
+
+@media (max-width: 650px) {
+
+    .print-gallery-section {
+
+        width: 90%;
+
+        padding-bottom: 75px;
+
+    }
+
+    .print-gallery {
+
+        column-count: 1;
+
+    }
+
+    .print-gallery-item {
+
+        margin-bottom: 18px;
+
+        border-radius: 12px;
+
+    }
+
+    .print-gallery-item img {
+
+        border-radius: 12px;
+
+    }
+
+    .print-lightbox {
+
+        padding: 65px 12px;
+
+    }
+
+    .print-lightbox img {
+
+        max-width: 100%;
+
+        max-height: 85vh;
+
+    }
+
+    .print-lightbox-close {
+
+        top: 15px;
+
+        right: 15px;
+
+    }
+
+}
+/* ==========================================
+   ADAPTIVES PORTFOLIO-RASTER
+
+   Die Projektkacheln passen sich automatisch
+   an die Anzahl vorhandener Projekte an.
+
+   Ziel:
+   - Keine leeren Rasterflächen
+   - Einheitliche Abstände
+   - Dynamische Kachelgrössen
+   - Responsive Darstellung
+========================================== */
+
+
+/* ==========================================
+   GRUNDRaster
+========================================== */
+
+.portfolio-masonry {
+
+    display: grid;
+
+    /* 12 Spalten ermöglichen flexible Aufteilungen */
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+
+    gap: 14px;
+
+    /* Bestehende Rasterhöhen zurücksetzen */
+    grid-auto-rows: auto;
+
+}
+
+
+/* ==========================================
+   STANDARDKACHELN
+========================================== */
+
+.portfolio-masonry > .portfolio-item {
+
+    /* Standardmässig drei Kacheln pro Reihe */
+    grid-column: span 4;
+
+    /* Einheitliche Höhe */
+    height: 320px;
+
+    min-height: 0;
+
+    /* Alte Grössenvorgaben überschreiben */
+    grid-row: auto;
+
+}
+
+
+/* ==========================================
+   DYNAMISCHE VERTEILUNG
+
+   :nth-last-child() erkennt automatisch,
+   wie viele Kacheln am Ende übrig bleiben.
+========================================== */
+
+
+/* Wenn eine einzelne Kachel übrig bleibt */
+
+.portfolio-masonry > .portfolio-item:last-child:nth-child(3n + 1) {
+
+    grid-column: span 12;
+
+}
+
+
+/* Wenn zwei Kacheln übrig bleiben */
+
+.portfolio-masonry > .portfolio-item:nth-last-child(2):nth-child(3n + 1),
+.portfolio-masonry > .portfolio-item:last-child:nth-child(3n + 2) {
+
+    grid-column: span 6;
+
+}
+
+
+/* ==========================================
+   BILDER
+========================================== */
+
+.portfolio-masonry > .portfolio-item img {
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+}
+
+
+/* ==========================================
+   TABLET
+========================================== */
+
+@media (max-width: 1000px) {
+
+    .portfolio-masonry > .portfolio-item {
+
+        grid-column: span 6;
+
+        height: 300px;
+
+    }
+
+    /* Letzte einzelne Kachel über volle Breite */
+
+    .portfolio-masonry > .portfolio-item:last-child:nth-child(odd) {
+
+        grid-column: span 12;
+
+    }
+
+}
+
+
+/* ==========================================
+   SMARTPHONE
+========================================== */
+
+@media (max-width: 650px) {
+
+    .portfolio-masonry {
+
+        grid-template-columns: 1fr;
+
+        gap: 14px;
+
+    }
+
+    .portfolio-masonry > .portfolio-item,
+    .portfolio-masonry > .portfolio-item:last-child {
+
+        grid-column: 1 / -1;
+
+        height: 360px;
+
+    }
+
+}
+/* ==========================================
+   MOBILE FIX – PROJEKTÜBERSICHTEN
+
+   Alle Projektkacheln nutzen auf Smartphones
+   die gesamte verfügbare Breite.
+========================================== */
+
+@media (max-width: 650px) {
+
+    /* Projektraster */
+
+    .portfolio-masonry {
+
+        display: grid;
+
+        grid-template-columns: minmax(0, 1fr);
+
+        gap: 18px;
+
+    }
+
+
+    /* Sämtliche Projektkacheln */
+
+    .portfolio-masonry > .portfolio-item {
+
+        grid-column: 1 / -1 !important;
+
+        grid-row: auto !important;
+
+        width: 100%;
+
+        height: 420px;
+
+        min-width: 0;
+
+        min-height: 0;
+
+    }
+
+
+    /* Auch ehemals grosse Kacheln */
+
+    .portfolio-masonry > .portfolio-item-large {
+
+        grid-column: 1 / -1 !important;
+
+        grid-row: auto !important;
+
+    }
+
+
+    /* Bilder */
+
+    .portfolio-masonry > .portfolio-item img {
+
+        display: block;
+
+        width: 100%;
+
+        height: 100%;
+
+        object-fit: cover;
+
+    }
+
+}
