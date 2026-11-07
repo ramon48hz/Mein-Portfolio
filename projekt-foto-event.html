@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="de-CH">
+
+<head>
+    <!-- ==========================================
+         GRUNDEINSTELLUNGEN
+    =========================================== -->
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Corporate Event Fotografie – Corporate Photography von Ramon Künzle.">
+
+    <title>Corporate Event Fotografie | Ramon Künzle</title>
+
+    <!-- Bestehendes CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Bestehendes JavaScript -->
+    <script src="script.js" defer></script>
+</head>
+
+<body id="start">
+
+    <!-- ==========================================
+         NAVIGATION
+    =========================================== -->
+
+    <header class="site-header">
+
+        <nav class="navbar" aria-label="Hauptnavigation">
+
+            <a href="index.html" class="logo" aria-label="Zur Startseite">
+                <img
+                    src="assets/RLogo.png"
+                    alt="Logo Ramon Künzle"
+                    class="logo-image"
+                >
+            </a>
+
+            <div class="nav-links">
+                <a href="index.html#about">Über mich</a>
+                <a href="projekte.html">Projekte</a>
+                <a href="index.html#contact">Kontakt</a>
+            </div>
+
+        </nav>
+
+    </header>
+
+
+    <!-- ==========================================
+         PROJEKTDETAILSEITE
+    =========================================== -->
+
+    <main class="project-detail">
+
+        <!-- HERO-CONTAINER -->
+        <div class="project-detail-container">
+
+            <!-- Zurück zur Fotografie-Übersicht -->
+            <div class="project-detail-topbar">
+
+                <a href="fotografie.html" class="project-detail-back">
+                    ← Zurück zu Fotografie
+                </a>
+
+            </div>
+
+
+            <!-- ==================================
+                 HERO-BEREICH
+            =================================== -->
+
+            <section class="project-detail-hero">
+
+                <!-- LINKE SEITE -->
+                <div class="project-detail-intro">
+
+                    <p class="project-detail-category">
+                        Corporate Event Fotografie
+                    </p>
+
+                    <h1>
+                        Fotografische Begleitung von Corporate Events
+                    </h1>
+
+                    <!-- Projektinformationen -->
+                    <div class="project-detail-meta">
+
+                        <div>
+                            <span>Auftraggeber</span>
+                            <strong>Migros Logistics</strong>
+                        </div>
+
+                        <div>
+                            <span>Zeitraum</span>
+                            <strong>2025 - 2026</strong>
+                        </div>
+
+                        <div>
+                            <span>Leistungen</span>
+                            <strong>Fotografie und Nachbearbeitung</strong>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- RECHTE SEITE: TITELBILD -->
+                <div class="project-detail-hero-image">
+
+                    <img
+                        src="assets/images/photo/projekt-02.jpg"
+                        alt="Corporate Event Fotografie"
+                    >
+
+                </div>
+
+            </section>
+
+        </div>
+
+
+        <!-- ==========================================
+             FOTOGALERIE
+        =========================================== -->
+
+        <section class="photo-project-section project-detail-container">
+
+            <!-- Titel und Kurzbeschreibung -->
+            <div class="photo-project-header">
+
+                <h2>Corporate Events Migros Logistics</h2>
+
+                <p>
+                    Fotografische Begleitung von Events bei Migros Logistics
+                </p>
+
+            </div>
+
+
+            <!-- ==================================
+                 MASONRY-GALERIE
+
+                 Die Bilder behalten ihre natürlichen
+                 Seitenverhältnisse.
+            =================================== -->
+
+            <div class="photo-masonry-gallery" id="photo-gallery">
+
+                <button class="photo-gallery-item" type="button" aria-label="Bild 1 vergrössern">
+                    <img src="assets/images/photo/event/DSC00272.JPG" alt="Corporate Events – Foto 1" loading="lazy">
+                </button>
+
+                <button class="photo-gallery-item" type="button" aria-label="Bild 2 vergrössern">
+                    <img src="assets/images/photo/event/DSC00291.JPG" alt="Corporate Events – Foto 2" loading="lazy">
+                </button>
+
+                <button class="photo-gallery-item" type="button" aria-label="Bild 3 vergrössern">
+                    <img src="assets/images/photo/event/DSC02350.JPG" alt="Corporate Events – Foto 3" loading="lazy">
+                </button>
+
+                <button class="photo-gallery-item" type="button" aria-label="Bild 4 vergrössern">
+                    <img src="assets/images/photo/event/DSC02375.JPG" alt="Corporate Events – Foto 4" loading="lazy">
+                </button>
+
+                <button class="photo-gallery-item" type="button" aria-label="Bild 5 vergrössern">
+                    <img src="assets/images/photo/event/DSC05332.JPG" alt="Corporate Events – Foto 5" loading="lazy">
+                </button>
+
+                <button class="photo-gallery-item" type="button" aria-label="Bild 6 vergrössern">
+                    <img src="assets/images/photo/event/DSC05339.JPG" alt="Corporate Events – Foto 6" loading="lazy">
+                </button>
+
+                <button class="photo-gallery-item" type="button" aria-label="Bild 7 vergrössern">
+                    <img src="assets/images/photo/event/DSC05351.JPG" alt="Corporate Events – Foto 7" loading="lazy">
+                </button>
+
+                
+
+            </div>
+
+        </section>
+
+
+        <!-- ==========================================
+             LIGHTBOX
+
+             Wird beim Anklicken eines Fotos geöffnet.
+        =========================================== -->
+
+        <div class="photo-lightbox" id="photo-lightbox"
+             role="dialog"
+             aria-modal="true"
+             aria-label="Fotogalerie"
+             aria-hidden="true">
+
+            <!-- Schliessen -->
+            <button
+                class="photo-lightbox-close"
+                id="photo-lightbox-close"
+                type="button"
+                aria-label="Galerie schliessen">
+                ×
+            </button>
+
+            <!-- Vorheriges Bild -->
+            <button
+                class="photo-lightbox-arrow photo-lightbox-prev"
+                id="photo-lightbox-prev"
+                type="button"
+                aria-label="Vorheriges Bild">
+                ←
+            </button>
+
+            <!-- Grosses Bild -->
+            <img
+                class="photo-lightbox-image"
+                id="photo-lightbox-image"
+                src=""
+                alt=""
+            >
+
+            <!-- Nächstes Bild -->
+            <button
+                class="photo-lightbox-arrow photo-lightbox-next"
+                id="photo-lightbox-next"
+                type="button"
+                aria-label="Nächstes Bild">
+                →
+            </button>
+
+            <!-- Bildzähler -->
+            <div class="photo-lightbox-counter" id="photo-lightbox-counter"></div>
+
+        </div>
+
+
+        <!-- ==========================================
+             PROJEKTNAVIGATION
+        =========================================== -->
+
+       <nav
+            class="project-detail-navigation"
+            aria-label="Projektnavigation"
+        >
+
+
+            <!-- VORHERIGES PROJEKT -->
+
+             <a
+                href="projekt-bilderwelt-migros.html"
+                class="project-detail-nav-button"
+            >
+                ← Vorheriges Projekt
+            </a>
+
+
+
+            <!-- PROJEKTÜBERSICHT -->
+
+            <a
+                href="fotografie.html"
+                class="project-detail-nav-button"
+            >
+                Zur Projektübersicht
+            </a>
+
+
+
+            <!-- NÄCHSTES PROJEKT -->
+
+            <a href="projekt-foto-mejosh.html"
+               class="project-detail-nav-button">
+
+                Nächstes Projekt →
+
+            </a>
+
+
+        </nav>
+
+
+    </main>
+
+
+    <!-- ==========================================
+         FOOTER
+    =========================================== -->
+
+    <footer class="site-footer subpage-footer">
+
+        <div class="footer-left">
+
+            <a href="index.html" class="footer-logo" aria-label="Zur Startseite">
+                <img src="assets/RLogo.png" alt="Logo Ramon Künzle">
+            </a>
+
+            <span class="footer-divider"></span>
+
+            <p>© 2026 Ramon Künzle</p>
+
+        </div>
+
+        <a href="#start" class="back-to-top subpage-back-to-top">
+            Nach oben ↑
+        </a>
+
+    </footer>
+
+</body>
+</html>
