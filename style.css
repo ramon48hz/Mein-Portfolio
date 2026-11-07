@@ -3809,3 +3809,252 @@ a {
     }
 
 }
+/* ==========================================
+   SPÄTIFY – DOKUMENTARFILM
+   ========================================== */
+
+
+/* ==========================================
+   SPÄTIFY – FILMBEREICH
+   ========================================== */
+
+.spaetify-film-section {
+
+    /* Gleiche horizontale Ausrichtung wie der Hero */
+    width: calc(100% - 48px);
+    max-width: 1400px;
+
+    margin: 0 auto;
+
+    /* Weniger Abstand zwischen Hero und Filmbereich */
+    padding: 30px 0 80px;
+
+}
+
+
+/* ==========================================
+   FILMTITEL UND BESCHREIBUNG
+   ========================================== */
+
+.spaetify-film-header {
+
+    margin-bottom: 35px;
+
+}
+
+.spaetify-film-header h2 {
+
+    margin: 0 0 15px;
+
+    font-size: clamp(28px, 3.5vw, 46px);
+
+    font-weight: 600;
+
+    letter-spacing: -0.035em;
+
+    line-height: 1.15;
+
+}
+
+.spaetify-film-header p {
+
+    max-width: 750px;
+
+    margin: 0;
+
+    font-size: clamp(16px, 1.5vw, 19px);
+
+    line-height: 1.65;
+
+    opacity: 0.7;
+
+}
+
+
+/* ==========================================
+   YOUTUBE-VIDEO
+   ========================================== */
+
+.spaetify-film-wrapper {
+
+    position: relative;
+
+    width: 100%;
+
+    /* Klassisches Filmformat */
+    aspect-ratio: 16 / 9;
+
+    overflow: hidden;
+
+    border-radius: 20px;
+
+    background: #111;
+
+}
+
+.spaetify-film-wrapper iframe {
+
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    border: none;
+
+}
+
+
+/* ==========================================
+   MOBILE
+   ========================================== */
+
+@media (max-width: 650px) {
+
+    .spaetify-film-section {
+
+        width: calc(100% - 36px);
+
+        padding: 55px 0 70px;
+
+    }
+
+    .spaetify-film-header {
+
+        margin-bottom: 25px;
+
+    }
+
+    .spaetify-film-wrapper {
+
+        border-radius: 14px;
+
+    }
+
+}
+/* ==========================================
+   VIDEOGRAFIE – EINHEITLICHE AUSRICHTUNG
+   ========================================== */
+
+/* Filmbereich exakt am Hero-Container ausrichten */
+.project-detail .spaetify-film-section {
+    width: 100%;
+    max-width: none;
+
+    /* Gleiche horizontale Abstände wie beim Hero */
+    padding-left: max(24px, calc((100% - 1400px) / 2));
+    padding-right: max(24px, calc((100% - 1400px) / 2));
+
+    box-sizing: border-box;
+}
+
+/* Mobile Darstellung */
+@media (max-width: 650px) {
+    .project-detail .spaetify-film-section {
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+}
+
+/* ==========================================
+   MIGROS LOGISTICS – VIDEOSAMMLUNG
+   ========================================== */
+
+
+/* ==========================================
+   ZWEISPALTIGES VIDEORASTER
+   ========================================== */
+
+.migros-films-grid {
+
+    /* Zwei gleich breite Spalten */
+    display: grid;
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    /* Abstand zwischen den Videos */
+    column-gap: 28px;
+    row-gap: 48px;
+
+    /* Abstand zwischen Beschreibung und Raster */
+    margin-top: 40px;
+
+}
+
+
+/* ==========================================
+   EINZELNE VIDEOKACHEL
+   ========================================== */
+
+.migros-film-card {
+
+    /* Verhindert, dass Videos das Raster verbreitern */
+    min-width: 0;
+
+}
+
+
+/* ==========================================
+   VIDEOTITEL UND HINWEISE
+   ========================================== */
+
+.migros-film-info {
+
+    padding-top: 18px;
+
+}
+
+.migros-film-info h3 {
+
+    margin: 0;
+
+    font-size: clamp(18px, 1.8vw, 23px);
+
+    font-weight: 600;
+
+    letter-spacing: -0.025em;
+
+    line-height: 1.3;
+
+}
+
+.migros-film-info p {
+
+    margin: 8px 0 0;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+
+    opacity: 0.55;
+
+}
+
+
+/* ==========================================
+   TABLET UND MOBILE
+   ========================================== */
+
+@media (max-width: 750px) {
+
+    .migros-films-grid {
+
+        /* Videos untereinander darstellen */
+        grid-template-columns: 1fr;
+
+        /* Etwas weniger Abstand auf Smartphones */
+        row-gap: 35px;
+
+        margin-top: 30px;
+
+    }
+
+    .migros-film-info {
+
+        padding-top: 14px;
+
+    }
+
+}
