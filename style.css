@@ -4340,3 +4340,47 @@ a {
     }
 
 }
+/* ==========================================
+   ANIMATIONEN – SCROLL REVEAL
+   ========================================== */
+
+/*
+   Elemente mit der Klasse .reveal
+   werden beim Scrollen sanft eingeblendet.
+*/
+
+/* Ausgangszustand nur bei aktiviertem JavaScript */
+.js-animations .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Sichtbarer Zustand */
+.js-animations .reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* ==========================================
+   BARRIEREFREIHEIT
+   ========================================== */
+
+/*
+   Wenn Nutzer reduzierte Animationen
+   bevorzugen, werden die Effekte deaktiviert.
+*/
+
+@media (prefers-reduced-motion: reduce) {
+
+    .js-animations .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+
+}

@@ -235,3 +235,62 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 });
+
+/* ==========================================
+   ANIMATIONEN – SCROLL REVEAL
+   ========================================== */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    // Prüfen, ob reduzierte Animationen gewünscht sind
+    const reducedMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    // Bei reduzierter Bewegung keine Animationen ausführen
+    if (reducedMotion) return;
+
+    // Alle Elemente mit der Klasse .reveal suchen
+    const revealElements = document.querySelectorAll(".reveal");
+
+    // Keine Elemente vorhanden? Script beenden.
+    if (revealElements.length === 0) return;
+
+    // Prüfen, ob IntersectionObserver unterstützt wird
+    if (!("IntersectionObserver" in window)) return;
+
+    // Animationsmodus aktivieren
+    document.documentElement.classList.add("js-animations");
+
+    // Observer erstellen
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+
+        entries.forEach((entry) => {
+
+            // Nur reagieren, wenn Element sichtbar wird
+            if (!entry.isIntersecting) return;
+
+            // Element einblenden
+            entry.target.classList.add("is-visible");
+
+            // Element danach nicht mehr beobachten
+            observer.unobserve(entry.target);
+
+        });
+
+    }, {
+
+        // Animation starten, sobald ein Teil sichtbar wird
+        threshold: 0.1,
+
+        // Etwas früher auslösen
+        rootMargin: "0px 0px -40px 0px"
+
+    });
+
+    // Alle Elemente beobachten
+    revealElements.forEach((element) => {
+        revealObserver.observe(element);
+    });
+
+});
